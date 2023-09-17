@@ -19,7 +19,7 @@ library(ggpmisc)
 make_subgroup_graphs <- function(theSimnet, thisSubtitle, fileSuffix){
 
   # use a previously created simnet (networks.R)
-  g<-as_tbl_graph(theSimnet) %E>%
+  g<-as_tbl_graph(simnet_999) %E>%
     filter() %N>%
     filter(!node_is_isolated())
   
@@ -32,6 +32,7 @@ make_subgroup_graphs <- function(theSimnet, thisSubtitle, fileSuffix){
         # Iterate across each edge and assign lat and long values to
         # X1, Y1
         for (i in 1:nrow(sgsites)) {
+          
           sgsites[i, 1] <- nodes[which(nodes$Ware.Code == thesesites[i, 1]), 1]
           sgsites[i, 2] <- as.numeric(nodes[which(nodes$Ware.Code == thesesites[i, 1]), 2])
           sgsites[i, 3] <- as.numeric(nodes[which(nodes$Ware.Code == thesesites[i, 1]), 3])            

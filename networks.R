@@ -6,7 +6,7 @@
 library(vegan)
 library(dplyr)
 
-inputFile= 'Iran-binary-all-Sep12-UTF.csv'
+inputFile= 'data/Iran-binary-all.csv'
 readFile <- read.csv(inputFile, header=TRUE)
 #readFile <- readFile[readFile$Decorated == 1, ] #decorated or undecorated?
 

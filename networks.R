@@ -32,7 +32,7 @@ library(ggpubr)
 
 
 #------------------------------------------------------
-fileSuffix = "-all-1-no-isolates"
+fileSuffix = "-all-999-no-isolates"
 thisSubtitle = "All - Threshold 0.999 - Isolates removed"
 
 simnet_999 <-

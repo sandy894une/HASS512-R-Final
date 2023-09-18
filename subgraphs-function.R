@@ -33,11 +33,11 @@ make_subgroup_graphs <- function(theSimnet, thisSubtitle, fileSuffix){
         # X1, Y1
         for (i in 1:nrow(sgsites)) {
           
-          sgsites[i, 1] <- nodes[which(nodes$Ware.Code == thesesites[i, 1]), 1]
-          sgsites[i, 2] <- as.numeric(nodes[which(nodes$Ware.Code == thesesites[i, 1]), 2])
-          sgsites[i, 3] <- as.numeric(nodes[which(nodes$Ware.Code == thesesites[i, 1]), 3])            
-          sgsites[i, 4] <- nodes[which(nodes$Ware.Code == thesesites[i, 1]), 4]
-          sgsites[i, 5] <- nodes[which(nodes$Ware.Code == thesesites[i, 1]), 5]
+          sgsites[i, 1] <- nodes[which(nodes$Ware.Code == thesesites[i, 1]), 3]
+          sgsites[i, 2] <- as.numeric(nodes[which(nodes$Ware.Code == thesesites[i, 1]), 5])
+          sgsites[i, 3] <- as.numeric(nodes[which(nodes$Ware.Code == thesesites[i, 1]), 6])            
+          sgsites[i, 4] <- nodes[which(nodes$Ware.Code == thesesites[i, 1]), 2]
+          sgsites[i, 5] <- nodes[which(nodes$Ware.Code == thesesites[i, 1]), 4]
         }
         
         colnames(sgsites) <- c("Code","Long","Lat","Site","Ware")
@@ -88,7 +88,11 @@ make_subgroup_graphs <- function(theSimnet, thisSubtitle, fileSuffix){
 iranSF <-read_sf("irn_adm_unhcr_20190514_shp/irn_admbnda_adm0_unhcr_20190514.shp")
 # Read in node location data
 
-nodes <- read.csv("data/nodes.csv", header = TRUE)
+#nodes <- read.csv("data/nodes.csv", header = TRUE)
+inputFile= 'data/Iran-binary-all.csv'
+readbinFile <- read.csv(inputFile, header=TRUE)
+# trim the file
+nodes <- readbinFile[,1:6]
 
 #------------------------------------------------------------------------------
 #run subgroup graphs with different threshholds

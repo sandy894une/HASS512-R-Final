@@ -179,11 +179,11 @@ make_maps(run5SimFile, run5Subtitle,run5FileSuffix,run5Size)
 #------------------------------------------------------------------------------
 # decorated only - maps with different thresholds
 print("decorated")
-inputFile= 'Iran-decorated-compiled.csv'
+inputFile= 'Iran-compiled-decorated.csv'
 readSimFile <- read.csv(inputFile, header=TRUE,encoding ="UTF-8")
 
 #remove same site similarity when necessary
-readSimFile <- readSimFile[readSimFile$S1Code != readSimFile$S2Code, ]
+#readSimFile <- readSimFile[readSimFile$S1Code != readSimFile$S2Code, ]
 #------------------------------------------------------------------------------
 #run groups for decorated only
 

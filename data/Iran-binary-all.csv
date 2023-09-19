@@ -88,9 +88,9 @@ TB2,Tol-e Bashi,TB2-RR,Red on Red,52.59,30.08,1,0,0,0,1,1,0,0,1,0,0,0,0,1,0,0,0,
 TB2,Tol-e Bashi,TB2-ST,Straw Tempered/Coarse,52.59,30.08,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 TB3,Tol-e Borzu,TB3-JPA,Jari style painted,52.94243333,29.82901389,0,0,1,1,1,0,0,0,1,0,0,0,0,1,0,0,0,0
 TB3,Tol-e Borzu,TB3-JPL,Jari style plain,52.94243333,29.82901389,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0
-TBB,Tal-e Bakun B,TBB-CCW,Common Coarse Ware,52.88666667,29.91333333,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
-TBB,Tal-e Bakun B,TBB-MW,Medium Ware,52.88666667,29.91333333,1,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0
-TBB,Tal-e Bakun B,TBB-PBW,Painted Buff Ware,52.88666667,29.91333333,1,0,0,0,1,0,0,0,1,0,0,0,0,1,0,0,0,0
+TB1,Tal-e Bakun B,TB1-CCW,Common Coarse Ware,52.88666667,29.91333333,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+TB1,Tal-e Bakun B,TB1-MW,Medium Ware,52.88666667,29.91333333,1,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0
+TB1,Tal-e Bakun B,TB1-PBW,Painted Buff Ware,52.88666667,29.91333333,1,0,0,0,1,0,0,0,1,0,0,0,0,1,0,0,0,0
 TE,Tepe Ebrahimabad,TE-BRPW,Black on Red Painted Ware,50.011,36.146,0,1,0,0,0,0,1,1,1,0,0,0,0,1,0,0,0,0
 TE,Tepe Ebrahimabad,TE-EPW,Ebrahimabad Painted Ware,50.011,36.146,0,1,0,0,0,1,0,0,1,0,0,0,1,1,0,0,0,0
 TE,Tepe Ebrahimabad,TE-S1BW,Sialk I Buff Ware,50.011,36.146,1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,0,0

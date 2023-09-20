@@ -115,7 +115,7 @@ make_maps <- function(theInputSimFile, thisSubtitle,fileSuffix,thisSize){
 #end function
 #-------------------------------------------------------------------------------
 
-#set parameters for each run
+#set parameters - only need to run this section once
 
 iranSF <-read_sf("irn_adm_unhcr_20190514_shp/irn_admbnda_adm0_unhcr_20190514.shp")
 inputFile= 'data/Iran-binary-all.csv'
@@ -124,7 +124,7 @@ readBinaryFile <- read.csv(inputFile, header=TRUE)
 segmentColours<-c( "forestgreen","gold", "orange","royalblue")
 
 sites <- as.data.frame(unique(readBinaryFile$Site.Code))
-
+#------------------------------------------------------------------------------
 # all data - maps with different thresholds
 inputFile= 'data/Iran-compiled-all.csv'
 readSimFile <- read.csv(inputFile, header=TRUE,encoding ="UTF-8")
@@ -179,7 +179,7 @@ make_maps(run5SimFile, run5Subtitle,run5FileSuffix,run5Size)
 #------------------------------------------------------------------------------
 # decorated only - maps with different thresholds
 print("decorated")
-inputFile= 'Iran-compiled-decorated.csv'
+inputFile= 'data/Iran-compiled-decorated.csv'
 readSimFile <- read.csv(inputFile, header=TRUE,encoding ="UTF-8")
 
 #remove same site similarity when necessary

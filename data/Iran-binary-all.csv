@@ -21,7 +21,7 @@ CB2,Chogha Bonut,CB2-OBP,Orange Buff Plain,48.505855,32.221305,1,0,0,0,1,0,0,0,0
 CB2,Chogha Bonut,CB2-PB,Painted-burnished,48.505855,32.221305,1,1,0,0,1,1,0,0,1,1,0,0,1,1,0,0,0,0
 CB2,Chogha Bonut,CB2-RS,Red-Slipped,48.505855,32.221305,1,0,0,0,0,1,1,0,0,1,0,0,0,0,0,0,0,0
 CB2,Chogha Bonut,CB2-SP,Smear-painted,48.505855,32.221305,1,0,0,0,1,1,0,0,1,0,0,0,1,0,0,0,0,0
-CB2,Chogha Bonut,CB2-ST,Straw-tempered Soft Ware,48.505855,32.221305,1,1,1,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0
+CB2,Chogha Bonut,CB2-ST,Straw-tempered,48.505855,32.221305,1,1,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0
 CM,Chogha Mish,CM-C,Coarse,48.555928,32.224015,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0
 CM,Chogha Mish,CM-FRW,Fine Red Washed,48.555928,32.224015,1,0,0,0,0,0,1,1,0,1,0,0,0,0,0,0,0,0
 CM,Chogha Mish,CM-PB,Painted-Burnished,48.555928,32.224015,1,0,0,0,1,0,0,0,1,1,0,0,0,1,0,0,0,0
@@ -43,15 +43,14 @@ HC,Hotu Cave,HC-CN,Caspian Neolithic,53.332575,36.7631,0,0,1,1,0,0,1,1,1,1,0,0,1
 HC,Hotu Cave,HC-D,Djeitun,53.332575,36.7631,1,0,0,0,1,0,0,0,1,1,0,0,1,1,0,0,0,0
 HC,Hotu Cave,HC-T1,Thornton Type 1,53.332575,36.7631,0,0,1,1,0,0,0,1,0,1,0,0,0,0,0,0,0,0
 HC,Hotu Cave,HC-T2,Thornton Type 2,53.332575,36.7631,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-HF,Hajji Firuz,HF-24j,Pl 24j,45.47444444,36.99444444,0,0,0,0,0,0,0,0,1,1,0,0,0,0,1,0,0,0
 HF,Hajji Firuz,HF-24k,"Pl 24k,l",45.47444444,36.99444444,1,1,0,0,0,0,1,0,1,1,1,0,0,0,0,0,0,0
 HF,Hajji Firuz,HF-B,Burnished,45.47444444,36.99444444,1,1,0,0,1,1,0,0,0,1,0,0,0,0,0,0,0,0
 HF,Hajji Firuz,HF-P,Painted,45.47444444,36.99444444,1,1,0,0,0,0,1,1,1,1,0,0,1,1,0,0,0,0
 HF,Hajji Firuz,HF-RW,Red-Washed,45.47444444,36.99444444,1,1,0,0,0,0,1,1,0,1,0,0,0,0,0,0,0,0
 KH,Kushk-e Hezar,KH-BB,Black on Buff,52.06511333,29.88179778,1,0,0,0,1,0,0,0,1,0,0,0,0,1,0,0,0,0
-KH,Kushk-e Hezar,KH-BBR,Black on Buff with Red Slip,52.06511333,29.88179778,1,0,0,0,1,0,1,0,1,0,0,0,0,1,0,0,0,0
+KH,Kushk-e Hezar,KH-BBR,Black on Buff with Red Slip,52.06511333,29.88179778,1,0,0,0,1,0,1,0,1,0,0,0,0,1,0,1,0,0
 KH,Kushk-e Hezar,KH-BRPW,Burnished Red Painted Ware,52.06511333,29.88179778,1,0,0,0,1,0,0,0,1,1,0,0,1,0,0,0,0,0
-KH,Kushk-e Hezar,KH-BW,Black on White,52.06511333,29.88179778,1,0,0,0,1,0,0,0,1,0,0,0,0,1,0,1,0,0
+KH,Kushk-e Hezar,KH-BW,Black on White,52.06511333,29.88179778,1,0,0,0,1,0,0,0,1,0,0,0,0,1,0,0,0,0
 KH,Kushk-e Hezar,KH-MRS,Matte Red Slip,52.06511333,29.88179778,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
 KH,Kushk-e Hezar,KH-RB,Red on Buff,52.06511333,29.88179778,1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,0,0
 KK,Khalateh Khan,KK-PACW,Painted Chakhmaq Ware,54.86611111,36.3,1,1,0,0,1,1,1,0,1,1,0,0,0,1,0,0,0,0
@@ -66,7 +65,7 @@ P,Pookerdvall,P-BLAPALB,BLAPALB,54.48638889,36.84861111,0,1,0,0,1,1,0,0,1,0,0,0,
 P,Pookerdvall,P-BROPYS,BROPYS,54.48638889,36.84861111,0,1,0,0,1,1,0,0,1,0,0,0,1,1,0,0,0,0
 P,Pookerdvall,P-BROPYT,BROPYT,54.48638889,36.84861111,1,0,0,0,1,1,0,0,1,0,0,1,1,0,0,0,0,0
 P,Pookerdvall,P-BUFFUN,BUFFUN,54.48638889,36.84861111,1,1,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0
-P,Pookerdvall,P-CREASPO,CREASPO,54.48638889,36.84861111,1,0,0,0,1,0,0,0,1,0,0,1,1,1,0,0,0,0
+P,Pookerdvall,P-CREASPO,CREASPO,54.48638889,36.84861111,1,0,0,0,1,0,0,0,1,0,0,1,0,1,0,0,0,0
 P,Pookerdvall,P-DABRYS,DABRYS,54.48638889,36.84861111,0,1,0,0,1,0,0,0,1,0,0,0,0,1,0,0,0,0
 P,Pookerdvall,P-EABRYS,EABRYS,54.48638889,36.84861111,0,1,1,0,1,0,0,0,1,0,0,0,1,1,0,0,0,0
 P,Pookerdvall,P-POLWAV,POLWAV,54.48638889,36.84861111,0,1,1,0,1,1,0,0,1,1,0,0,1,1,0,0,0,0
@@ -142,7 +141,7 @@ TQA,Tol-e Qasr-e Ahmad ,TQA-BR,Burnished Red,52.76638889,29.17416667,1,0,0,0,0,0
 TQA,Tol-e Qasr-e Ahmad ,TQA-PAB,Painted Buff,52.76638889,29.17416667,1,0,0,0,1,0,0,0,1,0,0,0,0,1,0,0,0,0
 TQA,Tol-e Qasr-e Ahmad ,TQA-PLB,Plain Buff,52.76638889,29.17416667,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
 TQA,Tol-e Qasr-e Ahmad ,TQA-SR,Simple Red,52.76638889,29.17416667,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
-TRA,Tepe Rahmat Abad,TRA-FM,Formative Mushki,53.05774722,30.11208333,1,1,1,0,1,1,1,0,1,0,0,0,0,1,0,0,0,0
+TRA,Tepe Rahmat Abad,TRA-FM,Formative Mushki,53.05774722,30.11208333,1,1,0,0,1,1,0,0,1,0,0,0,0,1,0,0,0,0
 TRA,Tepe Rahmat Abad,TRA-RW,Red Ware,53.05774722,30.11208333,0,0,1,0,0,0,1,0,1,0,0,0,0,1,0,0,0,0
 TRA,Tepe Rahmat Abad,TRA-SW,Simple Ware,53.05774722,30.11208333,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
 TS1,Tol-e Sabz,TS1-BB,Black-on-buff,52.44638889,28.85666667,1,0,0,0,1,0,0,0,1,0,0,0,0,1,0,0,0,0
@@ -176,8 +175,8 @@ TV,Tappeh Valiki,TV-L,Local,53.24673889,36.79325278,1,0,0,0,1,1,0,0,1,0,0,0,1,0,
 TV,Tappeh Valiki,TV-R,Regional,53.24673889,36.79325278,1,0,0,0,1,0,0,0,1,0,0,0,1,1,0,0,0,0
 TV,Tappeh Valiki,TV-TR1,Trans-regional 1,53.24673889,36.79325278,1,0,0,0,1,1,0,0,1,0,0,0,1,1,0,0,0,0
 TY,Tepe Yahya,TY-UCW,Unpainted Coarse Ware,56.8675,28.33083278,1,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0
-TZ,Tepe Zagheh,TZ-AP,Archaic Painted Ware,49.95123889,35.81657194,0,0,0,0,1,0,0,1,1,0,0,1,0,0,0,0,0,0
-TZ,Tepe Zagheh,TZ-C,Crusted Ware,49.95123889,35.81657194,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+TZ,Tepe Zagheh,TZ-AP,Archaic Painted Ware,49.95123889,35.81657194,1,1,1,0,1,1,1,0,1,0,0,1,0,0,0,0,0,0
+TZ,Tepe Zagheh,TZ-C,Crusted Ware,49.95123889,35.81657194,1,1,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1
 YT1,Yanik Tepe,YT1-1,No 1,46.00295,37.9805,1,0,0,0,0,0,1,0,1,1,1,0,0,0,0,0,0,0
 YT1,Yanik Tepe,YT1-S,Soft,46.00295,37.9805,1,1,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0
 YT2,Yarim Tepe,YT2-D,Djeitun/Yarim Neolithic,55.200322,37.147815,1,0,0,0,1,0,0,0,1,1,0,0,0,1,0,0,0,0

@@ -18,7 +18,7 @@ compileddf = data.frame(
 # note: specify the path relative to the cwd
 
 inputFile= 'data/Iran-binary-all.csv'
-#inputFile= 'test-data.csv'
+
 
 outputsimFile = 'data/Iran-compiled-all.csv'
 

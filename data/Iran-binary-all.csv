@@ -7,7 +7,8 @@ AT,Ahrendjan Tepe,AT-PA,AQT Tradition Painted,44.75538889,38.21327778,1,1,1,0,1,
 AT,Ahrendjan Tepe,AT-PL,AQT Tradition Plain ,44.75538889,38.21327778,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 B,Tol-e Bizdan,B-B,Bizdan,54.40972222,28.64277778,0,0,1,0,1,0,0,0,1,1,0,0,1,0,0,0,0,0
 BC,Belt Cave,BC-D,Djeitun,53.332575,36.7631,1,0,0,0,1,0,0,0,1,1,0,0,1,1,0,0,0,0
-BC,Belt Cave,BC-SN,Software Neolithic,53.332575,36.7631,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0
+BC,Belt Cave,BC-CN,Caspian Neolithic,53.332575,36.7631,1,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0
+BC,Belt Cave,BC-CNR,Caspian Neolithic Red Washed,53.332575,36.7631,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0
 CA,Cheshmeh Ali,CA-PABW,Painted Buff Ware,51.445895,35.60760056,1,1,0,0,1,1,0,0,1,1,0,0,1,0,0,0,0,0
 CA,Cheshmeh Ali,CA-PLBW,Plain Buff Ware,51.445895,35.60760056,1,1,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0
 CB1,Chahar Boneh,CB1-PBW,Painted Buff Ware,49.9787,35.7806,1,0,0,0,1,0,0,0,1,0,0,0,0,1,0,0,0,0
@@ -37,7 +38,7 @@ CS,Chagha Sefid,CS-KR,Khazineh Red,47.26,32.62,0,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0
 CS,Chagha Sefid,CS-SRC,Sefid Red-on-Cream,47.26,32.62,1,0,0,0,1,0,0,0,1,0,0,0,1,1,0,0,0,0
 DKT,Deh Kheir Tepe,DKT-PA,Painted,54.98194444,36.53555556,1,1,0,0,1,1,0,0,1,1,0,0,1,0,0,0,0,0
 DKT,Deh Kheir Tepe,DKT-PL,Plain,54.98194444,36.53555556,1,1,0,0,1,1,0,0,0,1,0,0,0,0,0,0,0,0
-H,Hormangan,H-PA,Painted,53.51537389,36.99444444,0,1,1,0,0,1,1,0,1,0,0,0,0,1,0,0,0,0
+H,Hormangan,H-PA,Painted,53.51537389,30.50747583,0,1,1,0,0,1,1,0,1,0,0,0,0,1,0,0,0,0
 HC,Hotu Cave,HC-CA,Cheshmeh Ali,53.332575,36.7631,0,1,1,0,0,1,1,0,1,1,0,0,0,1,0,0,0,0
 HC,Hotu Cave,HC-CN,Caspian Neolithic,53.332575,36.7631,0,0,1,1,0,0,1,1,1,1,0,0,1,0,0,0,0,0
 HC,Hotu Cave,HC-D,Djeitun,53.332575,36.7631,1,0,0,0,1,0,0,0,1,1,0,0,1,1,0,0,0,0
@@ -99,7 +100,6 @@ TG,Tepe Guran,TG-AP,Archaic Painted,47.09775,33.75661944,1,0,0,0,1,0,0,0,1,1,0,0
 TG,Tepe Guran,TG-BW,Buff Ware,47.09775,33.75661944,1,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0
 TG,Tepe Guran,TG-GBW,Greyish-Brown Ware,47.09775,33.75661944,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0
 TG,Tepe Guran,TG-RS1,Red-slipped 1,47.09775,33.75661944,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0
-TG,Tepe Guran,TG-RS2,Red-slipped 2,47.09775,33.75661944,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0
 TG,Tepe Guran,TG-SP,Standard Painted,47.09775,33.75661944,1,0,0,0,0,0,1,0,1,1,0,0,1,0,0,0,0,0
 TI,Tal-i Iblis,TI-LPA,Lalehzar Coarse Ware - Painted,56.84,30.16,1,0,0,0,1,0,0,0,1,1,0,0,1,0,0,0,0,0
 TI,Tal-i Iblis,TI-LPL,Lalehzar Coarse Ware - Plain,56.84,30.16,1,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0

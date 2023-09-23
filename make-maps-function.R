@@ -59,7 +59,8 @@ make_maps <- function(theInputSimFile, thisSubtitle,fileSuffix,thisSize){
       #get the site name and ware names
       thisSiteCodes <-readBinaryFile[readBinaryFile$Site.Code %in% sites[[1]][[i]], ] 
       
-      allsimdata$JacSimCut <- cut(allsimdata$JacSim, breaks=c(0,0.6499, 0.799, 0.999, 1.0), labels=c("0-0.65","0.65-0.8", "0.8-0.9","0.9-1"))
+      allsimdata$JacSimCut <- cut(allsimdata$JacSim, breaks=c(0,0.299, 0.6499, 0.799, 0.999, 1.0), 
+        labels=c("0-0.3","0.3-0.65","0.65-0.8", "0.8-0.9","0.9-1"))
       
       plotTitle <- thisSiteCodes[[2]][[1]]
       facetLabels <- cbind(thisSiteCodes[3], thisSiteCodes[4])
@@ -103,11 +104,15 @@ make_maps <- function(theInputSimFile, thisSubtitle,fileSuffix,thisSize){
       #add the ware description on the next line
       appender <- function(string, suffix = facetLabels[which(facetLabels$Ware.Code %in% string), 2]) paste0(string, '\n', suffix)
       
-      p+facet_wrap(~fromWare,labeller = as_labeller(appender))
+      p+facet_wrap(~fromWare, ncol = 2, labeller = as_labeller(appender))
       
-      saveplot=paste0('maps/', sites[[1]][[i]],fileSuffix,'.png')
+      saveplot=paste0('maps/2col/', sites[[1]][[i]],fileSuffix,'.png')
       ggsave(saveplot, bg="white",width = 20, height = 20, units = "cm")
       
+      p+facet_wrap(~fromWare, ncol = 4, labeller = as_labeller(appender))
+      
+      saveplot=paste0('maps/4col/', sites[[1]][[i]],fileSuffix,'.png')
+      ggsave(saveplot, bg="white",width = 20, height = 20, units = "cm")
     }
   }
 }
@@ -121,7 +126,7 @@ iranSF <-read_sf("irn_adm_unhcr_20190514_shp/irn_admbnda_adm0_unhcr_20190514.shp
 inputFile= 'data/Iran-binary-all.csv'
 readBinaryFile <- read.csv(inputFile, header=TRUE)
 
-segmentColours<-c( "forestgreen","gold", "orange","royalblue")
+segmentColours<-c("lightgreen", "forestgreen","gold", "orange","royalblue")
 
 sites <- as.data.frame(unique(readBinaryFile$Site.Code))
 #------------------------------------------------------------------------------
@@ -175,6 +180,13 @@ run5FileSuffix = "-gt0-65"
 run5Size = 1.5
 make_maps(run5SimFile, run5Subtitle,run5FileSuffix,run5Size)
 
+#6 - similarity >= 0.1
+print(6)
+run6SimFile <- readSimFile[readSimFile$JacSim >= 0.1, ]
+run6Subtitle = "Similarity >= 0.1"
+run6FileSuffix = "-gt0-1"
+run6Size = 1.5
+make_maps(run6SimFile, run6Subtitle,run6FileSuffix,run6Size)
 
 #------------------------------------------------------------------------------
 # decorated only - maps with different thresholds
@@ -227,5 +239,11 @@ run5FileSuffix = "-dec-gt0-65"
 run5Size = 1.5
 make_maps(run5SimFile, run5Subtitle,run5FileSuffix,run5Size)
 #-------------------------------------------------------------------------------
-
+#6 - similarity >= 0.1
+print(6)
+run6SimFile <- readSimFile[readSimFile$JacSim >= 0.1, ]
+run6Subtitle = "Decorated only - Similarity >= 0.1"
+run6FileSuffix = "-dec-gt0-1"
+run6Size = 1.5
+make_maps(run6SimFile, run6Subtitle,run6FileSuffix,run6Size)
 

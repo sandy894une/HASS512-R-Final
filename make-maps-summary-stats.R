@@ -19,32 +19,68 @@ iranSF <-read_sf("irn_adm_unhcr_20190514_shp/irn_admbnda_adm0_unhcr_20190514.shp
 inputFile= 'data/Iran-binary-all.csv'
 readBinaryFile <- read.csv(inputFile, header=TRUE)
 
-readBinaryFile['Decorated'] <- readBinaryFile['Decorated'] * 10
-readBinaryFile['Burnished'] <- readBinaryFile['Burnished'] * 100
-readBinaryFile['mapvalue'] <- readBinaryFile['Decorated'] + readBinaryFile['Burnished']
-
-segmentColours<-c( "forestgreen","gold", "orange","royalblue")
 
 
 
-      
-      
+statsFile <-readBinaryFile
+
+
+statsFile <- statsFile %>%
+  mutate(SurfacePaleOnly = if_else(SurfacePale==1 & SurfaceLight==0 & SurfaceMod==0 & SurfaceDark==0, 1, 0)) %>%
+  mutate(SurfacePaleLight = if_else(SurfacePale==1 & SurfaceLight==1 & SurfaceMod==0 & SurfaceDark==0, 1, 0)) %>%
+  mutate(SurfaceLightOnly = if_else(SurfacePale==0 & SurfaceLight==1 & SurfaceMod==0 & SurfaceDark==0, 1, 0)) %>%
+  mutate(SurfaceLightMod = if_else(SurfaceLight==1 & SurfaceMod==1 & SurfacePale==0 & SurfaceDark==0, 1, 0))%>%
+  mutate(SurfaceModDark = if_else(SurfaceMod==1 & SurfaceDark==1 & SurfacePale==0 & SurfaceLight==0, 1, 0))%>%
+  mutate(SurfaceModOnly = if_else(SurfaceMod==1 & SurfaceDark==0 & SurfacePale==0 & SurfaceLight==0, 1, 0))%>%
+  mutate(SurfaceDarkOnly = if_else(SurfaceMod==0 & SurfaceDark==1 & SurfacePale==0 & SurfaceLight==0, 1, 0))%>%
+  mutate(SlipPaleLight = if_else(SlipPale==1 & SlipLight==1 & SlipMod==0 & SlipDark==0, 1, 0)) %>%
+  mutate(SlipPaleOnly = if_else(SlipPale==1 & SlipLight==0 & SlipMod==0 & SlipDark==0, 1, 0)) %>%
+  mutate(SlipLightMod = if_else(SlipLight==1 & SlipMod==1 & SlipPale==0 & SlipDark==0, 1, 0))%>%
+  mutate(SlipLightOnly = if_else(SlipPale==0 & SlipLight==1 & SlipMod==0 & SlipDark==0, 1, 0)) %>%
+  mutate(SlipModDark = if_else(SlipMod==1 & SlipDark==1 & SlipPale==0 & SlipLight==0, 1, 0))%>%
+  mutate(SlipModOnly = if_else(SlipPale==0 & SlipLight==0 & SlipMod==1 & SlipDark==0, 1, 0)) %>%
+  mutate(SlipDarkOnly = if_else(SlipPale==0 & SlipLight==0 & SlipMod==0 & SlipDark==1, 1, 0)) %>%
+  mutate(PaintPaleLight = if_else(PaintPale==1 & PaintLight==1 & PaintMod==0 & PaintDark==0, 1, 0)) %>%
+  mutate(PaintPaleOnly = if_else(PaintPale==1 & PaintLight==0 & PaintMod==0 & PaintDark==0, 1, 0)) %>%
+  mutate(PaintLightMod = if_else(PaintLight==1 & PaintMod==1 & PaintPale==0 & PaintDark==0, 1, 0))%>%
+  mutate(PaintModDark = if_else(PaintMod==1 & PaintDark==1 & PaintPale==0 & PaintLight==0, 1, 0))%>%
+  mutate(PaintLightOnly = if_else(PaintPale==0 & PaintLight==1 & PaintMod==0 & PaintDark==0, 1, 0)) %>%
+  mutate(PaintModOnly = if_else(PaintPale==0 & PaintLight==0 & PaintMod==1 & PaintDark==0, 1, 0)) %>%
+  mutate(PaintDarkOnly = if_else(PaintPale==0 & PaintLight==0 & PaintMod==0 & PaintDark==1, 1, 0))
+
+sums<-colSums(Filter(is.numeric, statsFile))
+
+#run once
+statsFile['Decorated'] <- readBinaryFile['Decorated'] / 10
+statsFile['Burnished'] <- readBinaryFile['Burnished'] / 100
+statsFile['mapvalue'] <- readBinaryFile['Decorated'] + readBinaryFile['Burnished']
+
+segmentColours<-c( "lightgreen","forestgreen", "lightblue","royalblue")
+
+
       #create the plots
       y_limits <- c(41, 50)
+      
+
+      
+      # New facet label names for mapvalue variable
+      mapvalue.labs <- c("Undecorated + Unburnished", "Decorated + Unburnished", "Undecorated + Burnished", "Decorated + Burnished")
+      names(mapvalue.labs) <- c(0, 10, 100, 110)
+
       p<-ggplot(iranSF)+
-        #labs(title=plotTitle, subtitle=thisSubtitle) +
+        labs(title="Summary Statistics") +
         geom_sf(fill="NA", color="darkgrey", size=0.2) +
-        geom_point(data=readBinaryFile, aes( x=LongDD, y=LatDD, color=as.factor(mapvalue)),size = 3) +
+        geom_point(data=statsFile, aes( x=LongDD, y=LatDD, color=as.factor(mapvalue)),size = 2) +
 
         coord_sf() +   
         theme_light() + 
-        #scale_size_identity() +
+     
         xlim(NA, 65) +
         ylim(NA, 40) +
         labs(color = "Burnished/Decorated") +
-        theme(axis.title.x=element_blank(), axis.title.y=element_blank(), strip.text = element_text(size = 8))
-      
-      p+scale_colour_manual(values = segmentColours, labels=c("Undecorated + Unburnished", "Decorated + Unburnished", "Undecorated + Burnished", "Decorated + Burnished"))
+        theme(axis.title.x=element_blank(), axis.title.y=element_blank(), strip.text = element_text(size = 8))+
+        facet_wrap(~mapvalue, labeller=labeller(mapvalue = mapvalue.labs))+
+        scale_colour_manual(values = segmentColours, labels=mapvalue.labs)
       
       saveplot=paste0('maps/summary-stats.png')
       ggsave(saveplot, bg="white",width = 20, height = 20, units = "cm")

@@ -263,15 +263,7 @@ g0_65 <-as_tbl_graph(simnet_65) %E>%
   theme(legend.position = "none") 
 saveplot=paste0('networks/network',fileSuffix,'.png')
 ggsave(saveplot, bg="white",width = 50, height = 50, units = "cm")
-#------------------------------------------------------
 
-ggarrange(g0_999, g0_90, g0_85, g0_80, g0_75,g0_65, nrow = 2, ncol = 3)
-
-saveplot=paste0('networks/network-arranged.png')
-ggsave(saveplot, bg="white",width = 75, height = 50, units = "cm")
-
-
-#------------------------------------------------------
 #------------------------------------------------------
 fileSuffix = "-all-0"
 thisSubtitle = "All - Threshold 0"
@@ -367,3 +359,13 @@ g0_30all <-as_tbl_graph(simnet_30) %>%
   theme(legend.position = "none") 
 saveplot=paste0('networks/network',fileSuffix,'.png')
 ggsave(saveplot, bg="white",width = 50, height = 50, units = "cm")
+
+#------------------------------------------------------
+
+ggarrange(g0_999, g0_90, g0_85, g0_80, g0_75,g0_65, nrow = 2, ncol = 3)
+
+saveplot=paste0('networks/network-arranged.png')
+ggsave(saveplot, bg="white",width = 75, height = 50, units = "cm")
+
+
+#------------------------------------------------------

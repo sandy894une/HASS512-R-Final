@@ -51,9 +51,11 @@ statsFile <- statsFile %>%
 sums<-colSums(Filter(is.numeric, statsFile))
 
 #run once
-statsFile['Decorated'] <- readBinaryFile['Decorated'] / 10
-statsFile['Burnished'] <- readBinaryFile['Burnished'] / 100
-statsFile['mapvalue'] <- readBinaryFile['Decorated'] + readBinaryFile['Burnished']
+statsFile['Decorated'] <- readBinaryFile['Decorated'] * 10
+statsFile['Burnished'] <- readBinaryFile['Burnished'] * 100
+statsFile['mapvalue'] <- statsFile['Decorated'] + statsFile['Burnished']
+
+table(statsFile$Burnished)
 
 segmentColours<-c( "lightgreen","forestgreen", "lightblue","royalblue")
 

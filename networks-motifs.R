@@ -167,7 +167,39 @@ motifs_g0_50 <-as_tbl_graph(motif_simnet50) %E>%
   theme(legend.position = "none") 
 saveplot=paste0('networks/network',fileSuffix,'.png')
 ggsave(saveplot, bg="white",width = 50, height = 50, units = "cm")
+#------------------------------------------------------
+fileSuffix = "-motifs-40"
+thisSubtitle = "Motifs - Threshold 0.40"
 
+motif_simnet40 <-
+  network(event2dichot(results,
+                       method = "absolute",
+                       thresh = 0.3999),
+          directed = FALSE)
+# add names for the nodes based on the row names of original matrix
+motif_simnet40 %v% "vertex.names" <- readFile$Site.Code
+
+# graph the results
+set.seed(1234)
+
+motifs_g0_40 <-as_tbl_graph(motif_simnet40) %E>%
+  filter() %N>%
+  filter() %>%
+  ggraph( layout = 'fr') +
+  labs(title="Network ", subtitle=thisSubtitle) +
+  geom_edge_link() + 
+  geom_node_point() + 
+  geom_node_text(aes(label = name),                
+                 check_overlap = TRUE,
+                 repel = TRUE,
+                 nudge_x = 0.1,
+                 nudge_y = 0.1,
+                 max.overlaps=Inf) +
+  theme_light() +
+  theme(axis.title.x=element_blank(), axis.title.y=element_blank())+
+  theme(legend.position = "none") 
+saveplot=paste0('networks/network',fileSuffix,'.png')
+ggsave(saveplot, bg="white",width = 50, height = 50, units = "cm")
 #------------------------------------------------------
 fileSuffix = "-motifs-0-3"
 thisSubtitle = "Motifs - Threshold 0.3"

@@ -104,7 +104,7 @@ make_maps <- function(theInputSimFile, thisSubtitle,fileSuffix,thisSize){
       #add the ware description on the next line
       appender <- function(string, suffix = facetLabels[which(facetLabels$Ware.Code %in% string), 2]) paste0(string, '\n', suffix)
       
-      p+facet_wrap(~fromWare, ncol = 2, labeller = as_labeller(appender))
+      p+facet_wrap(~fromCode, ncol = 2, labeller = as_labeller(appender))
       
       saveplot=paste0('maps/2col/', sites[[1]][[i]],fileSuffix,'.png')
       ggsave(saveplot, bg="white",width = 20, height = 20, units = "cm")

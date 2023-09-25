@@ -304,3 +304,66 @@ g0 <-as_tbl_graph(simnet_0) %>%
 saveplot=paste0('networks/network',fileSuffix,'.png')
 ggsave(saveplot, bg="white",width = 50, height = 50, units = "cm")
 #------------------------------------------------------
+
+#------------------------------------------------------
+fileSuffix = "-all-65"
+thisSubtitle = "All - Threshold 0.65"
+
+simnet_65 <-
+  network(event2dichot(results,
+                       method = "absolute",
+                       thresh = 0.6499),
+          directed = FALSE)
+# add names for the nodes based on the row names of original matrix
+simnet_65 %v% "vertex.names" <- readFile$Ware.Code
+
+# graph the results
+set.seed(1234)
+
+g0_65all <-as_tbl_graph(simnet_65) %>%
+  ggraph( layout = 'fr') +
+  labs(title="Network ", subtitle=thisSubtitle) +
+  geom_edge_link() + 
+  geom_node_point() + 
+  geom_node_text(aes(label = name),                
+                 check_overlap = TRUE,
+                 repel = TRUE,
+                 nudge_x = 0.1,
+                 nudge_y = 0.1,
+                 max.overlaps=Inf) +
+  theme_light() +
+  theme(axis.title.x=element_blank(), axis.title.y=element_blank())+
+  theme(legend.position = "none") 
+saveplot=paste0('networks/network',fileSuffix,'.png')
+ggsave(saveplot, bg="white",width = 50, height = 50, units = "cm")
+#------------------------------------------------------
+fileSuffix = "-all-30"
+thisSubtitle = "All - Threshold 0.30"
+
+simnet_30 <-
+  network(event2dichot(results,
+                       method = "absolute",
+                       thresh = 0.2999),
+          directed = FALSE)
+# add names for the nodes based on the row names of original matrix
+simnet_30 %v% "vertex.names" <- readFile$Ware.Code
+
+# graph the results
+set.seed(1234)
+
+g0_30all <-as_tbl_graph(simnet_30) %>%
+  ggraph( layout = 'fr') +
+  labs(title="Network ", subtitle=thisSubtitle) +
+  geom_edge_link() + 
+  geom_node_point() + 
+  geom_node_text(aes(label = name),                
+                 check_overlap = TRUE,
+                 repel = TRUE,
+                 nudge_x = 0.1,
+                 nudge_y = 0.1,
+                 max.overlaps=Inf) +
+  theme_light() +
+  theme(axis.title.x=element_blank(), axis.title.y=element_blank())+
+  theme(legend.position = "none") 
+saveplot=paste0('networks/network',fileSuffix,'.png')
+ggsave(saveplot, bg="white",width = 50, height = 50, units = "cm")

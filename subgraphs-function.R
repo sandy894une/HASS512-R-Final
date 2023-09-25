@@ -18,8 +18,9 @@ library(ggpmisc)
 #the function
 make_subgroup_graphs <- function(theSimnet, thisSubtitle, fileSuffix){
 
+  theSimnet<-  simnet_999
   # use a previously created simnet (networks.R)
-  g<-as_tbl_graph(simnet_999) %E>%
+  g<-as_tbl_graph(theSimnet) %E>%
     filter() %N>%
     filter(!node_is_isolated())
   
@@ -142,4 +143,15 @@ make_subgroup_graphs(run6Simnet, run6Subtitle, run6FileSuffix)
 
 
 #------------------------------------------------------------------------------
+simple_net <-
+  igraph::graph_from_adjacency_matrix(as.matrix(resultm),
+                                      mode = "undirected")
+degree(simple_net)
 
+degree(g)
+lv <- igraph::cluster_louvain(simple_net)
+set.seed(4353)
+plot(simple_net, vertex.color = lv$membership)
+
+set.seed(54)
+plot(lv, simple_net)

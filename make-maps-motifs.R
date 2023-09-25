@@ -35,7 +35,6 @@ readSimFile <- read.csv(inputFile, header=TRUE)
 #the function
 motifs_make_maps <- function(theInputSimFile, thisSubtitle,fileSuffix){
   
-
   S1SimData <- theInputSimFile %>% rename("fromCode" = "S1Code",
                                   
                                     "fromLat" = "S1lat",
@@ -55,13 +54,13 @@ motifs_make_maps <- function(theInputSimFile, thisSubtitle,fileSuffix){
                                     "toLat" = "S1lat",
                                     "toLong" ="S1long")
   
-  allsimdata<-rbind(S1SimData,S2SimData)
+  motifsimdata<-rbind(S1SimData,S2SimData)
       #get the site name and ware names
   thisSiteCodes <-readBinaryFile
   facetLabels <- cbind(thisSiteCodes[2], thisSiteCodes[1])
   to_string <- as_labeller(facetLabels)
   
-  allsimdata$JacSimCut <- cut(allsimdata$JacSim, breaks=c(0,0.2999,0.3999,0.5999,0.6499, 0.999, 1.0), 
+  motifsimdata$JacSimCut <- cut(motifsimdata$JacSim, breaks=c(0,0.2999,0.3999,0.5999,0.6499, 0.999, 1.0), 
                                        labels=c("0-0.3","0.3-0.4","0.4-0.5","0.5-0.65", "0.65-0.9","0.9-1"))
       
   plotTitle <- "Motif Jaccard Similarity"
@@ -74,13 +73,13 @@ motifs_make_maps <- function(theInputSimFile, thisSubtitle,fileSuffix){
       p<-ggplot(iranSF)+
         labs(title=plotTitle, subtitle=thisSubtitle) +
         geom_sf(fill="NA", color="darkgrey", size=0.2) +
-        geom_point(data=allsimdata, aes( x=fromLong, y=fromLat),size = 2, color = "darkblue",alpha=.8,stat = "unique" ) +
-        geom_point(data=allsimdata, aes( x=toLong, y=toLat),size = 0.5, color = "darkblue", alpha=.8,stat = "unique") +
+        geom_point(data=motifsimdata, aes( x=fromLong, y=fromLat),size = 2, color = "darkblue",alpha=.8,stat = "unique" ) +
+        geom_point(data=motifsimdata, aes( x=toLong, y=toLat),size = 0.5, color = "darkblue", alpha=.8,stat = "unique") +
  
-        geom_segment(data=allsimdata,aes(x=fromLong, y=fromLat, xend=toLong,yend=toLat, color=JacSimCut),
+        geom_segment(data=motifsimdata,aes(x=fromLong, y=fromLat, xend=toLong,yend=toLat, color=JacSimCut),
                      inherit.aes = FALSE, size=0.5)+
-        geom_text_repel(data=allsimdata, aes( x=toLong, y=toLat, label=toCode),stat = "unique",
-                        size=2.0,
+        geom_text_repel(data=motifsimdata, aes( x=toLong, y=toLat, label=toCode),stat = "unique",
+                        size=4.0,
                         force_pull   = 0, # do not pull toward data points
                         nudge_y      = 0.05,
                         direction    = "x",
@@ -104,10 +103,11 @@ motifs_make_maps <- function(theInputSimFile, thisSubtitle,fileSuffix){
       
       #add the ware description on the next line
       appender <- function(string, suffix = facetLabels[which(facetLabels$Site.Code %in% string), 2]) paste0(string, '\n', suffix)
-      p+facet_wrap(~fromCode,labeller = as_labeller(appender))
-     # p+facet_wrap(~fromWare,labeller = as_labeller(appender))
+     
+      p+facet_wrap(~fromCode, ncol = 4,labeller = as_labeller(appender))
+
       
-      saveplot=paste0('maps/motifs/',fileSuffix,'.png')
+      saveplot=paste0('maps/motifs/motifs',fileSuffix,'.png')
       ggsave(saveplot, bg="white",width = 50, height = 50, units = "cm")
       
     }

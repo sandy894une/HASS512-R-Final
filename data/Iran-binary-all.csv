@@ -1,4 +1,4 @@
-Site Code,Site,Ware Code,Pottery Identifier,LongDD,LatDD,SurfacePale,SurfaceLight,SurfaceMod,SurfaceDark,SlipPale,SlipLight,SlipMod,SlipDark,Decorated,Burnished,PaintPale,PaintLight,PaintMod,PaintDark,Incised,SlipBichrome,PaintBichrome,Slip Crusted
+Site Code,Site,Ware Code,Pottery Identifier,LongDD,LatDD,SurfaceVeryLight,SurfaceLight,SurfaceMod,SurfaceDark,SlipVeryLight,SlipLight,SlipMod,SlipDark,Decorated,Burnished,PaintVeryLight,PaintLight,PaintMod,PaintDark,Incised,SlipBichrome,PaintBichrome,Slip Crusted
 AK,Ali Kosh,AK-JPA,Jaffar Painted,47.32492222,32.55781389,1,1,0,0,1,1,0,0,1,1,0,0,1,0,0,0,0,0
 AK,Ali Kosh,AK-JPL,Jaffar Plain,47.32492222,32.55781389,1,1,0,0,1,1,0,0,0,1,0,0,0,0,0,0,0,0
 AK,Ali Kosh,AK-KR,Khazineh Red,47.32492222,32.55781389,0,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0
@@ -178,5 +178,6 @@ TY,Tepe Yahya,TY-UCW,Unpainted Coarse Ware,56.8675,28.33083278,1,0,0,0,1,0,0,0,0
 TZ,Tepe Zagheh,TZ-AP,Archaic Painted Ware,49.95123889,35.81657194,1,1,1,0,1,1,1,0,1,0,0,1,0,0,0,0,0,0
 TZ,Tepe Zagheh,TZ-C,Crusted Ware,49.95123889,35.81657194,1,1,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1
 YT1,Yanik Tepe,YT1-1,No 1,46.00295,37.9805,1,0,0,0,0,0,1,0,1,1,1,0,0,0,0,0,0,0
-YT1,Yanik Tepe,YT1-S,Soft,46.00295,37.9805,1,1,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0
+YT1,Yanik Tepe,YT1-PL,Plain,46.00295,37.9805,1,1,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0
+YT1,Yanik Tepe,YT1-PA,Painted,46.00295,37.9805,1,1,0,0,1,1,0,0,1,0,0,0,1,1,0,0,0,0
 YT2,Yarim Tepe,YT2-D,Djeitun/Yarim Neolithic,55.200322,37.147815,1,0,0,0,1,0,0,0,1,1,0,0,0,1,0,0,0,0

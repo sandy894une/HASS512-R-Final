@@ -23,7 +23,8 @@ iranSF <-read_sf("irn_adm_unhcr_20190514_shp/irn_admbnda_adm0_unhcr_20190514.shp
 inputFile= 'data/Iran-binary-motifs-subset.csv'
 readBinaryFile <- read.csv(inputFile, header=TRUE)
 
-segmentColours<-c("lightblue","lightgreen", "forestgreen","royalblue","gold", "orange","black")
+#segmentColours<-c("lightblue","lightgreen", "forestgreen","royalblue","gold", "orange","black")
+segmentColours<-c("lightgreen","forestgreen","royalblue", "orange","black")
 
 #sites <- as.data.frame(unique(readBinaryFile$Site.Code))
 #------------------------------------------------------------------------------
@@ -32,7 +33,7 @@ inputFile= 'data/Iran-compiled-motifs-subset.csv'
 readMotifSimFile <- read.csv(inputFile, header=TRUE)
 
 theMotifSimFile <- readMotifSimFile[readMotifSimFile$JacSim >= 0.1, ]
-run1Subtitle = "Similarity >= 0.1"
+thisSubtitle = "Similarity >= 0.1"
 fileSuffix = "-gt0-1-no-facet"
 #-------------------------------------------------------------------------------
 
@@ -61,14 +62,18 @@ fileSuffix = "-gt0-1-no-facet"
   motifsimdata<-rbind(S1MSimData,S2MSimData)
   
   #get the site names
+
   thisSiteCodes <-readBinaryFile
   for (i in 1:nrow(motifsimdata)) {
-      Site.Name[i] <- thisSiteCodes[which(motifsimdata$fromCode[i] == thisSiteCodes$Site.Code ), 1]
+    motifsimdata$SiteName[i] <- thisSiteCodes[which(motifsimdata$fromCode[i] == thisSiteCodes$Site.Code ), 1]
   }
-  motifsimdata <-cbind(motifsimdata,Site.Name)
+
   
-  motifsimdata$JacSimCut <- cut(motifsimdata$JacSim, breaks=c(0,0.2999,0.3999,0.5999,0.6499, 0.999, 1.0), 
-                                       labels=c("0-0.3","0.3-0.4","0.4-0.5","0.5-0.65", "0.65-0.9","0.9-1"))
+  #motifsimdata$JacSimCut <- cut(motifsimdata$JacSim, breaks=c(0,0.2999,0.3999,0.5999,0.6499, 0.999, 1.0), 
+  #                                     labels=c("0-0.3","0.3-0.4","0.4-0.5","0.5-0.65", "0.65-0.9","0.9-1"))
+  
+  motifsimdata$JacSimCut <- cut(motifsimdata$JacSim, breaks=c(0,0.2999,0.4999,0.6499, 0.999, 1.0), 
+                                labels=c("0-0.3","0.3-0.5","0.5-0.65", "0.65-0.9","0.9-1"))
       
   plotTitle <- "Motif Jaccard Similarity "
       
@@ -82,7 +87,7 @@ fileSuffix = "-gt0-1-no-facet"
  
         geom_segment(data=motifsimdata,aes(x=fromLong, y=fromLat, xend=toLong,yend=toLat, color=JacSimCut),
                      inherit.aes = FALSE, size=0.5)+
-        geom_text_repel(data=motifsimdata, aes( x=fromLong, y=fromLat, label=Site.Name),stat = "unique",
+        geom_text_repel(data=motifsimdata, aes( x=fromLong, y=fromLat, label=SiteName),stat = "unique",
                         size=4.0,
                         force_pull   = 0, # do not pull toward data points
                         nudge_y      = 0.05,

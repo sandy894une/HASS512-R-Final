@@ -129,7 +129,7 @@ imgRGB2[imgRGB2$Munsell %in% c('7.5YR 7/3', '7.5YR 7/4'),]
 #4=light
 
 cluster <- c(1,2,3,4)
-description <- c("pale", "dark", "moderate", "light")
+description <- c("very light", "dark", "moderate", "light")
 colorsGroups <-data.frame(cluster, description)
 #remove unwanted columns
 df <- DF4[c(1,6)]

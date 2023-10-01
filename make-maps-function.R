@@ -29,7 +29,7 @@ make_maps <- function(theInputSimFile, thisSubtitle,fileSuffix,thisSize){
   for (i in 1:nrow(sites)) {
     
     #get the sim data for the site
-    
+
     
     S1SimData<- theInputSimFile[theInputSimFile$S1Code %in% sites[[1]][[i]], ]
     S1SimData <- S1SimData %>% rename("fromCode" = "S1Code",
@@ -104,7 +104,7 @@ make_maps <- function(theInputSimFile, thisSubtitle,fileSuffix,thisSize){
       #add the ware description on the next line
       appender <- function(string, suffix = facetLabels[which(facetLabels$Ware.Code %in% string), 2]) paste0(string, '\n', suffix)
       
-      p+facet_wrap(~fromCode, ncol = 2, labeller = as_labeller(appender))
+      p+facet_wrap(~fromWare, ncol = 2, labeller = as_labeller(appender))
       
       saveplot=paste0('maps/2col/', sites[[1]][[i]],fileSuffix,'.png')
       ggsave(saveplot, bg="white",width = 20, height = 20, units = "cm")
@@ -132,7 +132,7 @@ sites <- as.data.frame(unique(readBinaryFile$Site.Code))
 #------------------------------------------------------------------------------
 # all data - maps with different thresholds
 inputFile= 'data/Iran-compiled-all.csv'
-readSimFile <- read.csv(inputFile, header=TRUE,encoding ="UTF-8")
+readSimFile <- read.csv(inputFile, header=TRUE)
 
 #remove same site similarity when necessary
 #readSimFile <- readSimFile[readSimFile$S1Code != readSimFile$S2Code, ]

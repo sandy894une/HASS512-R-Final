@@ -23,7 +23,9 @@ iranSF <-read_sf("irn_adm_unhcr_20190514_shp/irn_admbnda_adm0_unhcr_20190514.shp
 inputFile= 'data/Iran-binary-motifs-subset.csv'
 readBinaryFile <- read.csv(inputFile, header=TRUE)
 
-segmentColours<-c("lightblue","lightgreen", "forestgreen","royalblue","gold", "orange","black")
+#segmentColours<-c("gold","forestgreen","royalblue", "orange","black")
+segmentColours<-c("lightgreen","forestgreen","royalblue", "orange","black")
+#segmentColours<-c("lightblue","forestgreen","royalblue","gold", "orange","black")
 
 sites <- as.data.frame(unique(readBinaryFile$Site.Code))
 #------------------------------------------------------------------------------
@@ -60,8 +62,8 @@ motifs_make_maps <- function(theInputSimFile, thisSubtitle,fileSuffix){
   facetLabels <- cbind(thisSiteCodes[2], thisSiteCodes[1])
   to_string <- as_labeller(facetLabels)
   
-  motifsimdata$JacSimCut <- cut(motifsimdata$JacSim, breaks=c(0,0.2999,0.3999,0.5999,0.6499, 0.999, 1.0), 
-                                       labels=c("0-0.3","0.3-0.4","0.4-0.5","0.5-0.65", "0.65-0.9","0.9-1"))
+  motifsimdata$JacSimCut <- cut(motifsimdata$JacSim, breaks=c(0,0.2999,0.4999,0.6499, 0.999, 1.0), 
+                                       labels=c("0-0.3","0.3-0.5","0.5-0.65", "0.65-0.9","0.9-1"))
       
   plotTitle <- "Motif Jaccard Similarity"
       
@@ -95,16 +97,16 @@ motifs_make_maps <- function(theInputSimFile, thisSubtitle,fileSuffix){
         scale_size_identity() +
         xlim(51, 54.5) +
         ylim(28.5, 31.5) +
-        labs(color = "Jaccard Similarity Score") +
+        labs(color = "Jaccard Similarity Score:") +
         theme(axis.title.x=element_blank(), axis.title.y=element_blank(),
               legend.position = "bottom", legend.direction="horizontal",
-              strip.text = element_text(size = 8))
-      
+              strip.text = element_text(size = 8)) +
+        guides(fill = guide_legend(label.position = "bottom"))
       
       #add the ware description on the next line
       appender <- function(string, suffix = facetLabels[which(facetLabels$Site.Code %in% string), 2]) paste0(string, '\n', suffix)
      
-      p+facet_wrap(~fromCode, ncol = 4,labeller = as_labeller(appender))
+      #p+facet_wrap(~fromCode, ncol = 3,labeller = as_labeller(appender))
 
       
       saveplot=paste0('maps/motifs/motifs',fileSuffix,'.png')

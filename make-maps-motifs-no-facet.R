@@ -20,7 +20,7 @@ library(dplyr)
 #set parameters - only need to run this section once
 
 iranSF <-read_sf("irn_adm_unhcr_20190514_shp/irn_admbnda_adm0_unhcr_20190514.shp")
-inputFile= 'data/Iran-binary-motifs-subset.csv'
+inputFile= 'data/Iran-binary-motifs-v2-subset.csv'
 readBinaryFile <- read.csv(inputFile, header=TRUE)
 
 #segmentColours<-c("lightblue","lightgreen", "forestgreen","royalblue","gold", "orange","black")
@@ -29,12 +29,12 @@ segmentColours<-c("lightgreen","forestgreen","royalblue", "orange","black")
 #sites <- as.data.frame(unique(readBinaryFile$Site.Code))
 #------------------------------------------------------------------------------
 # all data - maps with different thresholds
-inputFile= 'data/Iran-compiled-motifs-subset.csv'
+inputFile= 'data/Iran-compiled-motifs-v2-subset.csv'
 readMotifSimFile <- read.csv(inputFile, header=TRUE)
 
 theMotifSimFile <- readMotifSimFile[readMotifSimFile$JacSim >= 0.1, ]
 thisSubtitle = "Similarity >= 0.1"
-fileSuffix = "-gt0-1-no-facet"
+fileSuffix = "-v2-gt0-1-no-facet"
 #-------------------------------------------------------------------------------
 
 #facetLabels <- cbind(thisSiteCodes[2], thisSiteCodes[1])

@@ -20,7 +20,7 @@ library(dplyr)
 #set parameters - only need to run this section once
 
 iranSF <-read_sf("irn_adm_unhcr_20190514_shp/irn_admbnda_adm0_unhcr_20190514.shp")
-inputFile= 'data/Iran-binary-motifs-subset.csv'
+inputFile= 'data/Iran-binary-motifs-v3-subset.csv'
 readBinaryFile <- read.csv(inputFile, header=TRUE)
 
 #segmentColours<-c("gold","forestgreen","royalblue", "orange","black")
@@ -30,7 +30,7 @@ segmentColours<-c("lightgreen","forestgreen","royalblue", "orange","black")
 sites <- as.data.frame(unique(readBinaryFile$Site.Code))
 #------------------------------------------------------------------------------
 # all data - maps with different thresholds
-inputFile= 'data/Iran-compiled-motifs-subset.csv'
+inputFile= 'data/Iran-compiled-motifs-v3-subset.csv'
 readSimFile <- read.csv(inputFile, header=TRUE)
 
 #-------------------------------------------------------------------------------
@@ -62,7 +62,7 @@ motifs_make_maps <- function(theInputSimFile, thisSubtitle,fileSuffix){
   facetLabels <- cbind(thisSiteCodes[2], thisSiteCodes[1])
   to_string <- as_labeller(facetLabels)
   
-  motifsimdata$JacSimCut <- cut(motifsimdata$JacSim, breaks=c(0,0.2999,0.4999,0.6499, 0.999, 1.0), 
+  motifsimdata$JacSimCut <- cut(motifsimdata$JacSim, breaks=c(0,0.2999,0.4999,0.6499, 0.8999, 1.0), 
                                        labels=c("0-0.3","0.3-0.5","0.5-0.65", "0.65-0.9","0.9-1"))
       
   plotTitle <- "Motif Jaccard Similarity"
@@ -71,7 +71,8 @@ motifs_make_maps <- function(theInputSimFile, thisSubtitle,fileSuffix){
       
       
       #create the plots
-      y_limits <- c(31, 50)
+      #y_limits <- c(31, 50)
+      y_limits <- c(33, 50)
       p<-ggplot(iranSF)+
         labs(title=plotTitle, subtitle=thisSubtitle) +
         geom_sf(fill="NA", color="darkgrey", size=0.2) +
@@ -95,8 +96,10 @@ motifs_make_maps <- function(theInputSimFile, thisSubtitle,fileSuffix){
         coord_sf() +   
         theme_light() + 
         scale_size_identity() +
-        xlim(51, 54.5) +
-        ylim(28.5, 31.5) +
+ #       xlim(51, 54.5) +
+#        ylim(28.5, 31.5) +        
+        xlim(NA, 65) +
+        ylim(NA, 40) +
         labs(color = "Jaccard Similarity Score:") +
         theme(axis.title.x=element_blank(), axis.title.y=element_blank(),
               legend.position = "bottom", legend.direction="horizontal",
@@ -110,7 +113,7 @@ motifs_make_maps <- function(theInputSimFile, thisSubtitle,fileSuffix){
 
       
       saveplot=paste0('maps/motifs/motifs',fileSuffix,'.png')
-      ggsave(saveplot, bg="white",width = 50, height = 50, units = "cm")
+      ggsave(saveplot, bg="white",width = 20, height = 20, units = "cm")
       
     }
 
@@ -139,8 +142,24 @@ motifs_make_maps(run2SimFile, run2Subtitle,run2FileSuffix)
 print(3)
 run3SimFile <- readSimFile[readSimFile$JacSim >= 0.65, ]
 run3Subtitle = "Similarity >= 0.65"
-run3FileSuffix = "-gt0-65"
+run3FileSuffix = "-v3-gt0-65"
 
 motifs_make_maps(run3SimFile, run3Subtitle,run3FileSuffix)
 #------------------------------------------------------------------------------
 
+#4 - similarity >= 0.8
+print(4)
+run4SimFile <- readSimFile[readSimFile$JacSim >= 0.8, ]
+run4Subtitle = "Similarity >= 0.8"
+run4FileSuffix = "-v3-gt0-8"
+
+motifs_make_maps(run4SimFile, run4Subtitle,run4FileSuffix)
+#------------------------------------------------------------------------------
+
+#5 - similarity >= 0.5
+print(5)
+run5SimFile <- readSimFile[readSimFile$JacSim >= 0.5, ]
+run5Subtitle = "Similarity >= 0.5"
+run5FileSuffix = "v2-gt0-5"
+
+motifs_make_maps(run5SimFile, run5Subtitle,run5FileSuffix)

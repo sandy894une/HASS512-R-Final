@@ -6,15 +6,13 @@
 library(vegan)
 library(dplyr)
 
-inputFile= 'data/Iran-binary-motifs-subset.csv'
-readFile <- read.csv(inputFile, header=TRUE)
-
+inputFile= 'data/Iran-binary-motifs-v3-subset.csv'
 readbinFile <- read.csv(inputFile, header=TRUE)
 
 # shift the first 4 columns into a sitelist file
 # only the presence/absence data into simdata
 sitelist <- readbinFile[,1:4]
-simdata  <- readbinFile[,5:28 ]
+simdata  <- readbinFile[,5:25 ]
 
 result <- vegdist(simdata, method = 'jaccard', binary = TRUE) 
 
@@ -43,7 +41,7 @@ motif_simnet999 <-
                        thresh = 0.9999),
           directed = FALSE)
 # add names for the nodes based on the row names of original matrix
-motif_simnet999 %v% "vertex.names" <- readFile$Site.Code
+motif_simnet999 %v% "vertex.names" <- readbinFile$Site.Code
 
 # graph the results
 set.seed(1234)
@@ -77,7 +75,7 @@ motif_simnet80 <-
                        thresh = 0.7999),
           directed = FALSE)
 # add names for the nodes based on the row names of original matrix
-motif_simnet80 %v% "vertex.names" <- readFile$Site.Code
+motif_simnet80 %v% "vertex.names" <- readbinFile$Site.Code
 
 # graph the results
 set.seed(1234)
@@ -110,7 +108,7 @@ motif_simnet65 <-
                        thresh = 0.6499),
           directed = FALSE)
 # add names for the nodes based on the row names of original matrix
-motif_simnet65 %v% "vertex.names" <- readFile$Site.Code
+motif_simnet65 %v% "vertex.names" <- readbinFile$Site.Code
 
 # graph the results
 set.seed(1234)
@@ -144,7 +142,7 @@ motif_simnet50 <-
                        thresh = 0.4999),
           directed = FALSE)
 # add names for the nodes based on the row names of original matrix
-motif_simnet50 %v% "vertex.names" <- readFile$Site.Code
+motif_simnet50 %v% "vertex.names" <- readbinFile$Site.Code
 
 # graph the results
 set.seed(1234)
@@ -177,7 +175,7 @@ motif_simnet40 <-
                        thresh = 0.3999),
           directed = FALSE)
 # add names for the nodes based on the row names of original matrix
-motif_simnet40 %v% "vertex.names" <- readFile$Site.Code
+motif_simnet40 %v% "vertex.names" <- readbinFile$Site.Code
 
 # graph the results
 set.seed(1234)
@@ -210,7 +208,7 @@ motif_simnet30 <-
                        thresh = 0.03),
           directed = FALSE)
 # add names for the nodes based on the row names of original matrix
-motif_simnet30 %v% "vertex.names" <- readFile$Site.Code
+motif_simnet30 %v% "vertex.names" <- readbinFile$Site.Code
 
 # graph the results
 set.seed(1234)
@@ -241,7 +239,7 @@ motif_simnet0 <-
                        thresh = 0.01),
           directed = FALSE)
 # add names for the nodes based on the row names of original matrix
-motif_simnet0 %v% "vertex.names" <- readFile$Site.Code
+motif_simnet0 %v% "vertex.names" <- readbinFile$Site.Code
 
 # graph the results
 set.seed(1234)

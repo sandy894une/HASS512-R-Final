@@ -15,17 +15,17 @@ compileddf = data.frame(
 # and name of the output file containing similarity matrix
 # note: specify the path relative to the cwd
 
-inputFile= 'data/Iran-binary-motifs-subset.csv'
+inputFile= 'data/Iran-binary-motifs-v3-subset.csv'
 
 
-outputsimFile = 'data/Iran-compiled-motifs-subset.csv'
+outputsimFile = 'data/Iran-compiled-motifs-v3-subset.csv'
 
 readbinFile <- read.csv(inputFile, header=TRUE)
 
 # shift the first 4 columns into a sitelist file
 # only the presence/absence data into simdata
 sitelist <- readbinFile[,1:4]
-simdata  <- readbinFile[,5:28 ]
+simdata  <- readbinFile[,5:25 ]
 
 result <- vegdist(simdata, method = 'jaccard', binary = TRUE) 
 

@@ -109,6 +109,7 @@ motifs_make_maps <- function(theInputSimFile, thisSubtitle,fileSuffix){
       #add the ware description on the next line
       appender <- function(string, suffix = facetLabels[which(facetLabels$Site.Code %in% string), 2]) paste0(string, '\n', suffix)
      
+      #comment this line to have one map - best for higher thresholds
       #p+facet_wrap(~fromCode, ncol = 3,labeller = as_labeller(appender))
 
       

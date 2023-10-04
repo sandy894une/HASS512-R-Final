@@ -1,6 +1,7 @@
-# title: make-maps-motifs.R
+# title: make-maps-motifs-no-facet.R
 
 # description: use ggplot2 to plot Jaccard similarity matrix
+# no facet, so all on one map
 # author: 'Sandy Pullen'
 # date: '2023-09-21'
 
@@ -20,7 +21,7 @@ library(dplyr)
 #set parameters - only need to run this section once
 
 iranSF <-read_sf("irn_adm_unhcr_20190514_shp/irn_admbnda_adm0_unhcr_20190514.shp")
-inputFile= 'data/Iran-binary-motifs-v2-subset.csv'
+inputFile= 'data/Iran-binary-motifs-v3-subset.csv'
 readBinaryFile <- read.csv(inputFile, header=TRUE)
 
 #segmentColours<-c("lightblue","lightgreen", "forestgreen","royalblue","gold", "orange","black")

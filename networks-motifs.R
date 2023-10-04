@@ -1,5 +1,6 @@
 # title: networks-motifs.R
 # description: create network diagram of the similarity matrix for motifs
+#alter the input file as necessary
 # author: 'Sandy Pullen'
 # date: '2023-09-21'
 
@@ -12,7 +13,7 @@ readbinFile <- read.csv(inputFile, header=TRUE)
 # shift the first 4 columns into a sitelist file
 # only the presence/absence data into simdata
 sitelist <- readbinFile[,1:4]
-simdata  <- readbinFile[,5:25 ]
+simdata  <- readbinFile[,5:23 ]
 
 result <- vegdist(simdata, method = 'jaccard', binary = TRUE) 
 
@@ -32,7 +33,7 @@ library(ggpubr)
 
 
 #------------------------------------------------------
-fileSuffix = "-motifs-999-no-isolates"
+fileSuffix = "-motifs-999"
 thisSubtitle = "Motifs - Threshold 0.999"
 
 motif_simnet999 <-
@@ -48,7 +49,7 @@ set.seed(1234)
 
 motifs_g0_999 <-as_tbl_graph(motif_simnet999) %E>%
   filter() %N>%
-  filter(!node_is_isolated()) %>%
+  filter() %>%
   ggraph( layout = 'fr') +
   labs(title="Network ", subtitle=thisSubtitle) +
   geom_edge_link() + 
@@ -66,7 +67,7 @@ saveplot=paste0('networks/network',fileSuffix,'.png')
 ggsave(saveplot, bg="white",width = 50, height = 50, units = "cm")
 
 #------------------------------------------------------
-fileSuffix = "-motifs-80-no-isolates"
+fileSuffix = "-motifs-80"
 thisSubtitle = "Motifs - Threshold 0.80"
 
 motif_simnet80 <-
@@ -82,7 +83,7 @@ set.seed(1234)
 
 motifs_g0_80 <-as_tbl_graph(motif_simnet80) %E>%
   filter() %N>%
-  filter(!node_is_isolated()) %>%
+  filter() %>%
   ggraph( layout = 'fr') +
   labs(title="Network ", subtitle=thisSubtitle) +
   geom_edge_link() + 
@@ -99,7 +100,7 @@ motifs_g0_80 <-as_tbl_graph(motif_simnet80) %E>%
 saveplot=paste0('networks/network',fileSuffix,'.png')
 ggsave(saveplot, bg="white",width = 50, height = 50, units = "cm")
 #------------------------------------------------------
-fileSuffix = "-motifs-65-no-isolates"
+fileSuffix = "-motifs-65"
 thisSubtitle = "Motifs - Threshold 0.65"
 
 motif_simnet65 <-
@@ -115,7 +116,7 @@ set.seed(1234)
 
 motifs_g0_65 <-as_tbl_graph(motif_simnet65) %E>%
   filter() %N>%
-  filter(!node_is_isolated()) %>%
+  filter() %>%
   ggraph( layout = 'fr') +
   labs(title="Network ", subtitle=thisSubtitle) +
   geom_edge_link() + 
@@ -133,7 +134,7 @@ saveplot=paste0('networks/network',fileSuffix,'.png')
 ggsave(saveplot, bg="white",width = 50, height = 50, units = "cm")
 
 #------------------------------------------------------
-fileSuffix = "-motifs-50-no-isolates"
+fileSuffix = "-motifs-50"
 thisSubtitle = "Motifs - Threshold 0.50"
 
 motif_simnet50 <-
@@ -149,7 +150,7 @@ set.seed(1234)
 
 motifs_g0_50 <-as_tbl_graph(motif_simnet50) %E>%
   filter() %N>%
-  filter(!node_is_isolated()) %>%
+  filter() %>%
   ggraph( layout = 'fr') +
   labs(title="Network ", subtitle=thisSubtitle) +
   geom_edge_link() + 
@@ -263,7 +264,7 @@ ggsave(saveplot, bg="white",width = 50, height = 50, units = "cm")
 #------------------------------------------------------
 #------------------------------------------------------
 
-ggarrange(motifs_g0_999, motifs_g0_80,motifs_g0_65,motifs_g0_50,motifs_g0_30, g0, nrow = 2, ncol = 3)
+ggarrange(motifs_g0_999, motifs_g0_80,motifs_g0_65,motifs_g0_50,motifs_g0_40, motifs_g0_30, nrow = 2, ncol = 3)
 
 saveplot=paste0('networks/network-motifs-arranged.png')
 ggsave(saveplot, bg="white",width = 75, height = 50, units = "cm")

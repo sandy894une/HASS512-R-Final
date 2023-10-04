@@ -1,4 +1,5 @@
 # create-Munsell-chart.R
+# used to create the range of Munsel colours in the soil charts
 # Sandy Pullen
 # 27 June 2023
 

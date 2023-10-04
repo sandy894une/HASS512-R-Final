@@ -1,6 +1,7 @@
 # title: make-maps-motifs-zoomed.R
 
 # description: use ggplot2 to plot Jaccard similarity matrix
+# x and y limits altered to show a smaller area of Iran
 # author: 'Sandy Pullen'
 # date: '2023-09-21'
 
@@ -20,7 +21,7 @@ library(dplyr)
 #set parameters - only need to run this section once
 
 iranSF <-read_sf("irn_adm_unhcr_20190514_shp/irn_admbnda_adm0_unhcr_20190514.shp")
-inputFile= 'data/Iran-binary-motifs-v2-subset.csv'
+inputFile= 'data/Iran-binary-motifs-v3-subset.csv'
 readBinaryFile <- read.csv(inputFile, header=TRUE)
 
 #segmentColours<-c("gold","forestgreen","royalblue", "orange","black")
@@ -30,12 +31,12 @@ segmentColours<-c("lightgreen","forestgreen","royalblue", "orange","black")
 sites <- as.data.frame(unique(readBinaryFile$Site.Code))
 #------------------------------------------------------------------------------
 # all data - maps with different thresholds
-inputFile= 'data/Iran-compiled-motifs-v2-subset.csv'
+inputFile= 'data/Iran-compiled-motifs-v3-subset.csv'
 readSimFile <- read.csv(inputFile, header=TRUE)
 
 theInputSimFile <- readSimFile[readSimFile$JacSim >= 0.5, ]
 thisSubtitle = "Similarity >= 0.5"
-fileSuffix = "-v2-gt0-5"
+run5FileSuffix = "-v2-gt0-5"
 #-------------------------------------------------------------------------------
 #the function
 motifs_make_maps <- function(theInputSimFile, thisSubtitle,fileSuffix){
@@ -74,7 +75,7 @@ motifs_make_maps <- function(theInputSimFile, thisSubtitle,fileSuffix){
       
       
       #create the plots
-      y_limits <- c(31, 50)
+      y_limits <- c(30.5, 50)
       #y_limits <- c(33, 50)
       p<-ggplot(iranSF)+
         labs(title=plotTitle, subtitle=thisSubtitle) +
@@ -85,7 +86,7 @@ motifs_make_maps <- function(theInputSimFile, thisSubtitle,fileSuffix){
         geom_segment(data=motifsimdata,aes(x=fromLong, y=fromLat, xend=toLong,yend=toLat, color=JacSimCut),
                      inherit.aes = FALSE, size=0.5)+
         geom_text_repel(data=motifsimdata, aes( x=toLong, y=toLat, label=toCode),stat = "unique",
-                        size=3.0,
+                        size=2.0,
                         force_pull   = 0, # do not pull toward data points
                         nudge_y      = 0.05,
                         direction    = "x",
@@ -99,8 +100,8 @@ motifs_make_maps <- function(theInputSimFile, thisSubtitle,fileSuffix){
         coord_sf() +   
         theme_light() + 
         scale_size_identity() +
-        xlim(51, 55.5) +
-        ylim(26.5, 31.5) +        
+        xlim(51, 54.5) +
+        ylim(28.5, 31.5) +        
 
         labs(color = "Jaccard Similarity Score:") +
         theme(axis.title.x=element_blank(), axis.title.y=element_blank(),
@@ -111,7 +112,7 @@ motifs_make_maps <- function(theInputSimFile, thisSubtitle,fileSuffix){
       #add the ware description on the next line
       appender <- function(string, suffix = facetLabels[which(facetLabels$Site.Code %in% string), 2]) paste0(string, '\n', suffix)
      
-      p+facet_wrap(~fromCode, ncol = 3,labeller = as_labeller(appender))
+      p+facet_wrap(~fromCode, ncol = 4,labeller = as_labeller(appender))
 
       
       saveplot=paste0('maps/motifs/motifs',fileSuffix,'.png')
@@ -162,6 +163,6 @@ motifs_make_maps(run4SimFile, run4Subtitle,run4FileSuffix)
 print(5)
 run5SimFile <- readSimFile[readSimFile$JacSim >= 0.5, ]
 run5Subtitle = "Similarity >= 0.5"
-run5FileSuffix = "-v2-gt0-5"
+run5FileSuffix = "-v3-gt0-5"
 
 motifs_make_maps(run5SimFile, run5Subtitle,run5FileSuffix)

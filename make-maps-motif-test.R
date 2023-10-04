@@ -1,4 +1,4 @@
-# title: make-maps-facet-by-motif.R
+# title: make-maps-motif-by location.R
 
 # description: use ggplot2 to plot Jaccard similarity matrix
 # author: 'Sandy Pullen'
@@ -13,7 +13,7 @@ library(tidyr)
 
 
 iranSF <-read_sf("irn_adm_unhcr_20190514_shp/irn_admbnda_adm0_unhcr_20190514.shp")
-inputFile= 'data/Iran-binary-motifs-subset.csv'
+inputFile= 'data/Iran-binary-motifs-v3-subset.csv'
 readBinaryFile <- read.csv(inputFile, header=TRUE)
 
 fileSuffix = "by-motif"
@@ -60,7 +60,7 @@ longer_data <- readBinaryFile %>% select(1:4,5:28) %>%
       
       p+ facet_wrap(vars(motiftype), ncol = 4)
         
-      saveplot=paste0('maps/motifs/motifs-test.png')
+      saveplot=paste0('maps/motifs/motifs-by-location.png')
       ggsave(saveplot, bg="white",width = 30, height = 30, units = "cm")
 
  

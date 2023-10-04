@@ -145,7 +145,7 @@ print(1)
 run1SimFile <- readSimFile[readSimFile$JacSim == 1.0, ]
 run1Subtitle = "Similarity = 1.0"
 run1FileSuffix = "-eq-1"
-run1Size = 1.5
+run1Size = 3.0
 make_maps(run1SimFile, run1Subtitle, run1FileSuffix, run1Size)
 
 #2 - similarity >= 0.85
@@ -161,7 +161,7 @@ print(3)
 run3SimFile <- readSimFile[readSimFile$JacSim >= 0.8, ]
 run3Subtitle = "Similarity >= 0.8"
 run3FileSuffix = "-gt0-8"
-run3Size = 1.5
+run3Size = 3.0
 make_maps(run3SimFile, run3Subtitle,run3FileSuffix,run3Size)
 
 #4 - similarity >= 0.75
@@ -220,7 +220,7 @@ print(3)
 run3SimFile <- readSimFile[readSimFile$JacSim >= 0.8, ]
 run3Subtitle = "Decorated only - Similarity >= 0.8"
 run3FileSuffix = "-dec-gt0-8"
-run3Size = 1.5
+run3Size = 3.0
 make_maps(run3SimFile, run3Subtitle,run3FileSuffix,run3Size)
 
 #4 - similarity >= 0.75

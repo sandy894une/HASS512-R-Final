@@ -52,7 +52,7 @@ g0_999 <-as_tbl_graph(simnet_999) %E>%
   ggraph( layout = 'fr') +
   labs(title="Network ", subtitle=thisSubtitle) +
   geom_edge_link() + 
-  geom_node_point() + 
+  geom_node_point(color="orange") +
   geom_node_text(aes(label = name),                
                  check_overlap = TRUE,
                  repel = TRUE,
@@ -85,7 +85,7 @@ g0_95 <-as_tbl_graph(simnet_95) %E>%
   ggraph( layout = 'fr') +
   labs(title="Network ", subtitle=thisSubtitle) +
   geom_edge_link() + 
-  geom_node_point() + 
+  geom_node_point(color="orange") +
   geom_node_text(aes(label = name),                
                  check_overlap = TRUE,
                  repel = TRUE,
@@ -118,7 +118,7 @@ g0_90 <-as_tbl_graph(simnet_90) %E>%
   ggraph( layout = 'fr') +
   labs(title="Network ", subtitle=thisSubtitle) +
   geom_edge_link() + 
-  geom_node_point() + 
+  geom_node_point(color="orange") +
   geom_node_text(aes(label = name),                
                  check_overlap = TRUE,
                  repel = TRUE,
@@ -151,7 +151,7 @@ g0_85 <-as_tbl_graph(simnet_85) %E>%
   ggraph( layout = 'fr') +
   labs(title="Network ", subtitle=thisSubtitle) +
   geom_edge_link() + 
-  geom_node_point() + 
+  geom_node_point(color="orange") +
   geom_node_text(aes(label = name),                
                  check_overlap = TRUE,
                  repel = TRUE,
@@ -184,7 +184,7 @@ g0_80 <-as_tbl_graph(simnet_80) %E>%
   ggraph( layout = 'fr') +
   labs(title="Network ", subtitle=thisSubtitle) +
   geom_edge_link() + 
-  geom_node_point() + 
+  geom_node_point(color="orange") + 
   geom_node_text(aes(label = name),                
                  check_overlap = TRUE,
                  repel = TRUE,
@@ -217,7 +217,7 @@ g0_75 <-as_tbl_graph(simnet_75) %E>%
   ggraph( layout = 'fr') +
   labs(title="Network ", subtitle=thisSubtitle) +
   geom_edge_link() + 
-  geom_node_point() + 
+  geom_node_point(color="orange") +
   geom_node_text(aes(label = name),                
                  check_overlap = TRUE,
                  repel = TRUE,
@@ -251,7 +251,7 @@ g0_65 <-as_tbl_graph(simnet_65) %E>%
   ggraph( layout = 'fr') +
   labs(title="Network ", subtitle=thisSubtitle) +
   geom_edge_link() + 
-  geom_node_point() + 
+  geom_node_point(color="orange") +
   geom_node_text(aes(label = name),                
                  check_overlap = TRUE,
                  repel = TRUE,
@@ -283,7 +283,7 @@ g0 <-as_tbl_graph(simnet_0) %>%
   ggraph( layout = 'fr') +
   labs(title="Network ", subtitle=thisSubtitle) +
   geom_edge_link() + 
-  geom_node_point() + 
+  geom_node_point(color="orange") +
   geom_node_text(aes(label = name),                
                  check_overlap = TRUE,
                  repel = TRUE,
@@ -316,7 +316,7 @@ g0_65all <-as_tbl_graph(simnet_65) %>%
   ggraph( layout = 'fr') +
   labs(title="Network ", subtitle=thisSubtitle) +
   geom_edge_link() + 
-  geom_node_point() + 
+  geom_node_point(color="orange") +
   geom_node_text(aes(label = name),                
                  check_overlap = TRUE,
                  repel = TRUE,
@@ -347,7 +347,7 @@ g0_30all <-as_tbl_graph(simnet_30) %>%
   ggraph( layout = 'fr') +
   labs(title="Network ", subtitle=thisSubtitle) +
   geom_edge_link() + 
-  geom_node_point() + 
+  geom_node_point(color="orange") +
   geom_node_text(aes(label = name),                
                  check_overlap = TRUE,
                  repel = TRUE,

@@ -30,7 +30,8 @@ longer_data <- readBinaryFile %>% select(1:4,5:23) %>%
     
       #create the plots
 
-      y_limits <- c(33, 50)
+      #y_limits <- c(33, 50)
+      y_limits <- c(30.5, 50)
       p<-ggplot(iranSF)+
         labs(title=plotTitle, subtitle="") +
         geom_sf(fill="NA", color="darkgrey", size=0.2) +
@@ -50,8 +51,10 @@ longer_data <- readBinaryFile %>% select(1:4,5:23) %>%
         coord_sf() +   
         theme_light() + 
 
-        xlim(NA, 65) +
-        ylim(NA, 40) +
+        #xlim(NA, 65) +
+        #ylim(NA, 40) +
+        xlim(51, 54.5) +
+        ylim(28.5, 31.5) +
         labs(color = "Jaccard Similarity Score") +
         theme(axis.title.x=element_blank(), axis.title.y=element_blank(),
               legend.position = "bottom", legend.direction="horizontal",

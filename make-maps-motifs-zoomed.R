@@ -34,9 +34,7 @@ sites <- as.data.frame(unique(readBinaryFile$Site.Code))
 inputFile= 'data/Iran-compiled-motifs-v3-subset.csv'
 readSimFile <- read.csv(inputFile, header=TRUE)
 
-theInputSimFile <- readSimFile[readSimFile$JacSim >= 0.5, ]
-thisSubtitle = "Similarity >= 0.5"
-run5FileSuffix = "-v2-gt0-5"
+
 #-------------------------------------------------------------------------------
 #the function
 motifs_make_maps <- function(theInputSimFile, thisSubtitle,fileSuffix){
@@ -129,7 +127,7 @@ motifs_make_maps <- function(theInputSimFile, thisSubtitle,fileSuffix){
 print(1)
 run1SimFile <- readSimFile[readSimFile$JacSim >= 0.1, ]
 run1Subtitle = "Similarity >= 0.1"
-run1FileSuffix = "-gt0-1"
+run1FileSuffix = "-v3-gt0-1"
 
 motifs_make_maps(run1SimFile, run1Subtitle,run1FileSuffix)
 
@@ -137,7 +135,7 @@ motifs_make_maps(run1SimFile, run1Subtitle,run1FileSuffix)
 print(2)
 run2SimFile <- readSimFile[readSimFile$JacSim >= 0.3, ]
 run2Subtitle = "Similarity >= 0.3"
-run2FileSuffix = "-gt0-3"
+run2FileSuffix = "-v3-gt0-3"
 
 motifs_make_maps(run2SimFile, run2Subtitle,run2FileSuffix)
 
@@ -145,7 +143,7 @@ motifs_make_maps(run2SimFile, run2Subtitle,run2FileSuffix)
 print(3)
 run3SimFile <- readSimFile[readSimFile$JacSim >= 0.65, ]
 run3Subtitle = "Similarity >= 0.65"
-run3FileSuffix = "-gt0-65"
+run3FileSuffix = "-v3-gt0-65"
 
 motifs_make_maps(run3SimFile, run3Subtitle,run3FileSuffix)
 #------------------------------------------------------------------------------
@@ -154,7 +152,7 @@ motifs_make_maps(run3SimFile, run3Subtitle,run3FileSuffix)
 print(4)
 run4SimFile <- readSimFile[readSimFile$JacSim >= 0.8, ]
 run4Subtitle = "Similarity >= 0.8"
-run4FileSuffix = "-gt0-8"
+run4FileSuffix = "-v3-gt0-8"
 
 motifs_make_maps(run4SimFile, run4Subtitle,run4FileSuffix)
 #------------------------------------------------------------------------------
@@ -163,6 +161,6 @@ motifs_make_maps(run4SimFile, run4Subtitle,run4FileSuffix)
 print(5)
 run5SimFile <- readSimFile[readSimFile$JacSim >= 0.5, ]
 run5Subtitle = "Similarity >= 0.5"
-run5FileSuffix = "-v3-gt0-5"
+run5FileSuffix = "-v3-gt0-5-no-facet"
 
 motifs_make_maps(run5SimFile, run5Subtitle,run5FileSuffix)

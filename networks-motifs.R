@@ -53,13 +53,15 @@ motifs_g0_999 <-as_tbl_graph(motif_simnet999) %E>%
   ggraph( layout = 'fr') +
   labs(title="Network ", subtitle=thisSubtitle) +
   geom_edge_link() + 
-  geom_node_point() + 
-  geom_node_text(aes(label = name),                
-                 check_overlap = TRUE,
-                 repel = TRUE,
-                 nudge_x = 0.1,
-                 nudge_y = 0.1,
-                 max.overlaps=Inf) +
+  geom_node_point() +
+  geom_node_label(aes(label=name, fill= "orange"), 
+                   col = "black",   hjust = "inward") +
+  #geom_node_text(aes(label = name), color="white",              
+  #               check_overlap = TRUE,
+  #               repel = TRUE,
+  #               nudge_x = 0.1,
+  #               nudge_y = 0.1,
+  #               max.overlaps=Inf) +
   theme_light() +
   theme(axis.title.x=element_blank(), axis.title.y=element_blank())+
   theme(legend.position = "none") 
@@ -88,12 +90,14 @@ motifs_g0_80 <-as_tbl_graph(motif_simnet80) %E>%
   labs(title="Network ", subtitle=thisSubtitle) +
   geom_edge_link() + 
   geom_node_point() + 
-  geom_node_text(aes(label = name),                
-                 check_overlap = TRUE,
-                 repel = TRUE,
-                 nudge_x = 0.1,
-                 nudge_y = 0.1,
-                 max.overlaps=Inf) +
+  geom_node_label(aes(label=name, fill= "orange"), 
+                   col = "black",   hjust = "inward") +
+  #geom_node_text(aes(label = name), color="white",              
+  #               check_overlap = TRUE,
+  #               repel = TRUE,
+  #               nudge_x = 0.1,
+  #               nudge_y = 0.1,
+  #               max.overlaps=Inf) +
   theme_light() +
   theme(axis.title.x=element_blank(), axis.title.y=element_blank())+
   theme(legend.position = "none") 
@@ -121,12 +125,14 @@ motifs_g0_65 <-as_tbl_graph(motif_simnet65) %E>%
   labs(title="Network ", subtitle=thisSubtitle) +
   geom_edge_link() + 
   geom_node_point() + 
-  geom_node_text(aes(label = name),                
-                 check_overlap = TRUE,
-                 repel = TRUE,
-                 nudge_x = 0.1,
-                 nudge_y = 0.1,
-                 max.overlaps=Inf) +
+  geom_node_label(aes(label=name, fill= "orange"), 
+                   col = "black",   hjust = "inward") +
+  #geom_node_text(aes(label = name), color="white",              
+  #               check_overlap = TRUE,
+  #               repel = TRUE,
+  #               nudge_x = 0.1,
+  #               nudge_y = 0.1,
+  #               max.overlaps=Inf) +
   theme_light() +
   theme(axis.title.x=element_blank(), axis.title.y=element_blank())+
   theme(legend.position = "none") 
@@ -155,12 +161,14 @@ motifs_g0_50 <-as_tbl_graph(motif_simnet50) %E>%
   labs(title="Network ", subtitle=thisSubtitle) +
   geom_edge_link() + 
   geom_node_point() + 
-  geom_node_text(aes(label = name),                
-                 check_overlap = TRUE,
-                 repel = TRUE,
-                 nudge_x = 0.1,
-                 nudge_y = 0.1,
-                 max.overlaps=Inf) +
+  geom_node_label(aes(label=name, fill= "orange"), 
+                   col = "black",   hjust = "inward") +
+  #geom_node_text(aes(label = name), color="white",              
+  #               check_overlap = TRUE,
+  #               repel = TRUE,
+  #               nudge_x = 0.1,
+  #               nudge_y = 0.1,
+  #               max.overlaps=Inf) +
   theme_light() +
   theme(axis.title.x=element_blank(), axis.title.y=element_blank())+
   theme(legend.position = "none") 
@@ -188,19 +196,21 @@ motifs_g0_40 <-as_tbl_graph(motif_simnet40) %E>%
   labs(title="Network ", subtitle=thisSubtitle) +
   geom_edge_link() + 
   geom_node_point() + 
-  geom_node_text(aes(label = name),                
-                 check_overlap = TRUE,
-                 repel = TRUE,
-                 nudge_x = 0.1,
-                 nudge_y = 0.1,
-                 max.overlaps=Inf) +
+  geom_node_label(aes(label=name, fill= "orange"), 
+                   col = "black",   hjust = "inward") +
+  #geom_node_text(aes(label = name), color="white",              
+  #               check_overlap = TRUE,
+  #               repel = TRUE,
+  #               nudge_x = 0.1,
+  #               nudge_y = 0.1,
+  #               max.overlaps=Inf) +
   theme_light() +
   theme(axis.title.x=element_blank(), axis.title.y=element_blank())+
   theme(legend.position = "none") 
 saveplot=paste0('networks/network',fileSuffix,'.png')
 ggsave(saveplot, bg="white",width = 50, height = 50, units = "cm")
 #------------------------------------------------------
-fileSuffix = "-motifs-0-3"
+fileSuffix = "-motifs-30"
 thisSubtitle = "Motifs - Threshold 0.3"
 
 motif_simnet30 <-
@@ -219,12 +229,14 @@ motifs_g0_30 <-as_tbl_graph(motif_simnet30) %>%
   labs(title="Network ", subtitle=thisSubtitle) +
   geom_edge_link() + 
   geom_node_point() + 
-  geom_node_text(aes(label = name),                
-                 check_overlap = TRUE,
-                 repel = TRUE,
-                 nudge_x = 0.1,
-                 nudge_y = 0.1,
-                 max.overlaps=Inf) +
+  geom_node_label(aes(label=name, fill= "orange"), 
+                   col = "black",   hjust = "inward") +
+  #geom_node_text(aes(label = name), color="white",              
+  #               check_overlap = TRUE,
+  #               repel = TRUE,
+  #               nudge_x = 0.1,
+  #               nudge_y = 0.1,
+  #               max.overlaps=Inf) +
   theme_light() +
   theme(axis.title.x=element_blank(), axis.title.y=element_blank())+
   theme(legend.position = "none") 
@@ -250,12 +262,14 @@ g0 <-as_tbl_graph(motif_simnet0) %>%
   labs(title="Network ", subtitle=thisSubtitle) +
   geom_edge_link() + 
   geom_node_point() + 
-  geom_node_text(aes(label = name),                
-                 check_overlap = TRUE,
-                 repel = TRUE,
-                 nudge_x = 0.1,
-                 nudge_y = 0.1,
-                 max.overlaps=Inf) +
+  geom_node_label(aes(label=name, fill= "orange"), 
+                   col = "black",   hjust = "inward") +
+  #geom_node_text(aes(label = name), color="white",              
+  #               check_overlap = TRUE,
+  #               repel = TRUE,
+  #               nudge_x = 0.1,
+  #               nudge_y = 0.1,
+  #               max.overlaps=Inf) +
   theme_light() +
   theme(axis.title.x=element_blank(), axis.title.y=element_blank())+
   theme(legend.position = "none") 

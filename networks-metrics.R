@@ -105,6 +105,14 @@ simnet_80 <-
 # add names for the nodes based on the row names of original matrix
 simnet_80 %v% "vertex.names" <- readFile$Site.Code
 
+simnet_65 <-
+  network(event2dichot(results,
+                       method = "absolute",
+                       thresh = 0.6499),
+          directed = FALSE)
+# add names for the nodes based on the row names of original matrix
+simnet_65 %v% "vertex.names" <- readFile$Site.Code
+
 simnet_50 <-
   network(event2dichot(results,
                        method = "absolute",
@@ -114,7 +122,7 @@ simnet_50 <-
 simnet_50 %v% "vertex.names" <- readFile$Site.Code
 
 #degree centrality
-deg_999 <- degree(simnet_999,  ignore.eval==TRUE)  %>% cbind(readFile[, c(1,2)]) #if plotting add long and lat
+deg_999 <- sna::degree(simnet_999,  ignore.eval==TRUE)  %>% cbind(readFile[, c(1,2)]) #if plotting add long and lat
 sorted_deg_999 <-deg_999[order(-deg_999[1]),]
 print(sorted_deg_999[1:20,1:2])
 
@@ -122,31 +130,42 @@ deg_80 <- sna::degree(simnet_80,  ignore.eval==TRUE)   %>% cbind(readFile[,  c(1
 sorted_deg_80 <-deg_80[order(-deg_80[1]),]
 print(sorted_deg_80[1:20,1:2])
 
+deg_65 <- sna::degree(simnet_65,  ignore.eval==TRUE)   %>% cbind(readFile[,  c(1,2)]) #if plotting add long and lat
+sorted_deg_65 <-deg_65[order(-deg_65[1]),]
+print(sorted_deg_65[1:20,1:2])
+
 deg_50 <- sna::degree(simnet_50,  ignore.eval==TRUE)   %>% cbind(readFile[,  c(1,2)]) #if plotting add long and lat
 sorted_deg_50 <-deg_50[order(-deg_50[1]),]
 print(sorted_deg_50[1:20,1:2])
 
 #eigenvector centrality
-eig_50<- evcent(simnet_50)  %>% cbind(readFile[,  c(1,2)]) #if plotting add long and lat
-eig_80<- evcent(simnet_80)  %>% cbind(readFile[,  c(1,2)]) #if plotting add long and lat
-eig_999<- evcent(simnet_999)  %>% cbind(readFile[,  c(1,2)]) #if plotting add long and lat
+eig_50<- sna::evcent(simnet_50)  %>% cbind(readFile[,  c(1,2)]) #if plotting add long and lat
+eig_65<- sna::evcent(simnet_65)  %>% cbind(readFile[,  c(1,2)]) #if plotting add long and lat
+eig_80<- sna::evcent(simnet_80)  %>% cbind(readFile[,  c(1,2)]) #if plotting add long and lat
+eig_999<- sna::evcent(simnet_999)  %>% cbind(readFile[,  c(1,2)]) #if plotting add long and lat
 
 #make eigenvector values more readable
 ex_50 = round(1000*as.numeric(unlist(eig_50[1])), 2)
+ex_65 = round(1000*as.numeric(unlist(eig_65[1])), 2)
 ex_80 = round(1000*as.numeric(unlist(eig_80[1])), 2)
 ex_999 = round(1000*as.numeric(unlist(eig_999[1])), 2)
 
-eig_50<- evcent(simnet_50) %>% cbind(readFile[, c(1,2)]) %>% cbind(ex_50)
+eig_50<- sna::evcent(simnet_50) %>% cbind(readFile[, c(1,2)]) %>% cbind(ex_50)
 sorted_eig_50 <-eig_50[order(-eig_50[1]),]
 #print(sorted_eig_50)
 print(sorted_eig_50[1:20,c(2, 4)])
 
-eig_80<- evcent(simnet_80) %>% cbind(readFile[, c(1,2)]) %>% cbind(ex_80)
+eig_65<- sna::evcent(simnet_65) %>% cbind(readFile[, c(1,2)]) %>% cbind(ex_65)
+sorted_eig_65 <-eig_65[order(-eig_65[1]),]
+#print(sorted_eig_65)
+print(sorted_eig_65[1:20,c(2, 4)])
+
+eig_80<- sna::evcent(simnet_80) %>% cbind(readFile[, c(1,2)]) %>% cbind(ex_80)
 sorted_eig_80 <-eig_80[order(-eig_80[1]),]
 #print(sorted_eig_80)
 print(sorted_eig_80[1:20,c(2, 4)])
 
-eig_999<- evcent(simnet_999) %>% cbind(readFile[, c(1,2)]) %>% cbind(ex_999)
+eig_999<- sna::evcent(simnet_999) %>% cbind(readFile[, c(1,2)]) %>% cbind(ex_999)
 sorted_eig_999 <-eig_999[order(-eig_999[1]),]
 print(sorted_eig_999[1:20,c(2, 4)])
 

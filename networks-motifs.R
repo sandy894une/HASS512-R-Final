@@ -101,7 +101,7 @@ motifs_g0_80 <-as_tbl_graph(motif_simnet80) %E>%
   theme_light() +
   theme(axis.title.x=element_blank(), axis.title.y=element_blank())+
   theme(legend.position = "none") 
-saveplot=paste0('networks/network',fileSuffix,'.png')
+saveplot=paste0('networks/motifs/network',fileSuffix,'.png')
 ggsave(saveplot, bg="white",width = 50, height = 50, units = "cm")
 #------------------------------------------------------
 fileSuffix = "-motifs-65"
@@ -278,7 +278,7 @@ ggsave(saveplot, bg="white",width = 50, height = 50, units = "cm")
 #------------------------------------------------------
 #------------------------------------------------------
 
-ggarrange(motifs_g0_999, motifs_g0_80,motifs_g0_65,motifs_g0_50,motifs_g0_40, motifs_g0_30, nrow = 2, ncol = 3)
+ggarrange(motifs_g0_999, motifs_g0_80,motifs_g0_65,motifs_g0_50, nrow = 2, ncol = 2)
 
 saveplot=paste0('networks/network-motifs-arranged.png')
 ggsave(saveplot, bg="white",width = 75, height = 50, units = "cm")

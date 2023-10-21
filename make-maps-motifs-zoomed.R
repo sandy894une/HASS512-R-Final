@@ -84,7 +84,7 @@ motifs_make_maps <- function(theInputSimFile, thisSubtitle,fileSuffix){
         geom_segment(data=motifsimdata,aes(x=fromLong, y=fromLat, xend=toLong,yend=toLat, color=JacSimCut),
                      inherit.aes = FALSE, size=0.5)+
         geom_text_repel(data=motifsimdata, aes( x=toLong, y=toLat, label=toCode),stat = "unique",
-                        size=2.0,
+                        size=5.0,
                         force_pull   = 0, # do not pull toward data points
                         nudge_y      = 0.05,
                         direction    = "x",
@@ -110,10 +110,10 @@ motifs_make_maps <- function(theInputSimFile, thisSubtitle,fileSuffix){
       #add the ware description on the next line
       appender <- function(string, suffix = facetLabels[which(facetLabels$Site.Code %in% string), 2]) paste0(string, '\n', suffix)
      
-      p+facet_wrap(~fromCode, ncol = 4,labeller = as_labeller(appender))
+      #p+facet_wrap(~fromCode, ncol = 4,labeller = as_labeller(appender))
 
       
-      saveplot=paste0('maps/motifs/motifs',fileSuffix,'.png')
+      saveplot=paste0('maps/motifs/motifs-nofacet',fileSuffix,'.png')
       ggsave(saveplot, bg="white",width = 20, height = 20, units = "cm")
       
     }
@@ -123,11 +123,11 @@ motifs_make_maps <- function(theInputSimFile, thisSubtitle,fileSuffix){
 
 
 
-#1 - similarity >= 0.1
+#1 - similarity = 1.0
 print(1)
-run1SimFile <- readSimFile[readSimFile$JacSim >= 0.1, ]
-run1Subtitle = "Similarity >= 0.1"
-run1FileSuffix = "-v3-gt0-1"
+run1SimFile <- readSimFile[readSimFile$JacSim == 1.0, ]
+run1Subtitle = "Similarity = 1.0"
+run1FileSuffix = "-zoom-v3-gt1"
 
 motifs_make_maps(run1SimFile, run1Subtitle,run1FileSuffix)
 
@@ -135,7 +135,7 @@ motifs_make_maps(run1SimFile, run1Subtitle,run1FileSuffix)
 print(2)
 run2SimFile <- readSimFile[readSimFile$JacSim >= 0.3, ]
 run2Subtitle = "Similarity >= 0.3"
-run2FileSuffix = "-v3-gt0-3"
+run2FileSuffix = "-zoom-v3-gt0-3"
 
 motifs_make_maps(run2SimFile, run2Subtitle,run2FileSuffix)
 
@@ -143,7 +143,7 @@ motifs_make_maps(run2SimFile, run2Subtitle,run2FileSuffix)
 print(3)
 run3SimFile <- readSimFile[readSimFile$JacSim >= 0.65, ]
 run3Subtitle = "Similarity >= 0.65"
-run3FileSuffix = "-v3-gt0-65"
+run3FileSuffix = "-zoom-v3-gt0-65"
 
 motifs_make_maps(run3SimFile, run3Subtitle,run3FileSuffix)
 #------------------------------------------------------------------------------
@@ -152,7 +152,7 @@ motifs_make_maps(run3SimFile, run3Subtitle,run3FileSuffix)
 print(4)
 run4SimFile <- readSimFile[readSimFile$JacSim >= 0.8, ]
 run4Subtitle = "Similarity >= 0.8"
-run4FileSuffix = "-v3-gt0-8"
+run4FileSuffix = "-zoom-v3-gt0-8"
 
 motifs_make_maps(run4SimFile, run4Subtitle,run4FileSuffix)
 #------------------------------------------------------------------------------
@@ -161,6 +161,8 @@ motifs_make_maps(run4SimFile, run4Subtitle,run4FileSuffix)
 print(5)
 run5SimFile <- readSimFile[readSimFile$JacSim >= 0.5, ]
 run5Subtitle = "Similarity >= 0.5"
-run5FileSuffix = "-v3-gt0-5-no-facet"
+run5FileSuffix = "-zoom-v3-gt0-5"
 
 motifs_make_maps(run5SimFile, run5Subtitle,run5FileSuffix)
+
+

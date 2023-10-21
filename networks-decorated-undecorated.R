@@ -1,4 +1,4 @@
-# title: networks.R
+# title: networks-decorated-undecorated.R
 # description: create network diagram of the similarity tables
 # separate into two groups based on decorated 1 or 0
 # author: 'Sandy Pullen'
@@ -12,14 +12,14 @@ readFile <- read.csv(inputFile, header=TRUE)
 
 # run twice using paramaters below:
 #run 1
-#readFile <- readFile[readFile$Decorated == 1, ] #decorated
-#inputType<-"dec"
-#thisTitle = "Network - Decorated Only"
+readFile <- readFile[readFile$Decorated == 1, ] #decorated
+inputType<-"dec"
+thisTitle = "Network - Decorated Only"
 
 #run 2
-readFile <- readFile[readFile$Decorated == 0, ] #undecorated
-inputType<-"undec"
-thisTitle = "Network - Undecorated Only"
+#readFile <- readFile[readFile$Decorated == 0, ] #undecorated
+#inputType<-"undec"
+#thisTitle = "Network - Undecorated Only"
 
 # shift the first 6 columns into a sitelist file
 # only the presence/absence data into simdata

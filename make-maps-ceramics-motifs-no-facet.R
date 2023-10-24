@@ -1,7 +1,7 @@
-# title: make-maps-motifs-no-facet.R
+# title: make-maps-ceramics-motifs-no-facet.R
 
 # description: use ggplot2 to plot Jaccard similarity matrix
-# no facet, so all on one map
+# ceramic attributes subset - no facet, so all on one map
 # author: 'Sandy Pullen'
 # date: '2023-09-21'
 
@@ -114,7 +114,7 @@ allsimdata<-rbind(S1SimData,S2SimData)
               strip.text = element_text(size = 8))
       
 
-      saveplot=paste0('maps/motifs/ceramic-subset-nofacet-',fileSuffix,'.png')
+      saveplot=paste0('maps/motifs/ceramic attribute subset/ceramic-subset-nofacet-',fileSuffix,'.png')
       ggsave(saveplot, bg="white",width = 50, height = 50, units = "cm")
       
  

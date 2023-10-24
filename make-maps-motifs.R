@@ -1,6 +1,8 @@
 # title: make-maps-motifs.R
 
-# description: use ggplot2 to plot Jaccard similarity matrix
+# description: use ggplot2 to plot Jaccard similarity matrix for motif data
+# full size map of Iran
+
 # author: 'Sandy Pullen'
 # date: '2023-09-21'
 
@@ -123,11 +125,11 @@ motifs_make_maps <- function(theInputSimFile, thisSubtitle,fileSuffix){
 
 
 
-#1 - similarity >= 0.1
+#1 - similarity = 1
 print(1)
-run1SimFile <- readSimFile[readSimFile$JacSim >= 0.1, ]
-run1Subtitle = "Similarity >= 0.1"
-run1FileSuffix = "-gt0-1"
+run1SimFile <- readSimFile[readSimFile$JacSim == 1, ]
+run1Subtitle = "Similarity = 1"
+run1FileSuffix = "-v3-eq-1"
 
 motifs_make_maps(run1SimFile, run1Subtitle,run1FileSuffix)
 
@@ -135,7 +137,7 @@ motifs_make_maps(run1SimFile, run1Subtitle,run1FileSuffix)
 print(2)
 run2SimFile <- readSimFile[readSimFile$JacSim >= 0.3, ]
 run2Subtitle = "Similarity >= 0.3"
-run2FileSuffix = "-gt0-3"
+run2FileSuffix = "-v3-gt0-3"
 
 motifs_make_maps(run2SimFile, run2Subtitle,run2FileSuffix)
 
@@ -161,6 +163,6 @@ motifs_make_maps(run4SimFile, run4Subtitle,run4FileSuffix)
 print(5)
 run5SimFile <- readSimFile[readSimFile$JacSim >= 0.5, ]
 run5Subtitle = "Similarity >= 0.5"
-run5FileSuffix = "v2-gt0-5"
+run5FileSuffix = "v3-gt0-5"
 
 motifs_make_maps(run5SimFile, run5Subtitle,run5FileSuffix)

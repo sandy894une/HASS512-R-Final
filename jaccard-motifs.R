@@ -1,5 +1,5 @@
 # title: jaccard-motifs.R
-# description: jaccard calculations using vegdist using motif subset as input file
+# description: jaccard calculations using vegdist using motif binary file as input file
 # author: 'Sandy Pullen'
 # date: '2023-09-21'
 

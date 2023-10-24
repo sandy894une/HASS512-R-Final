@@ -84,7 +84,7 @@ motifs_make_maps <- function(theInputSimFile, thisSubtitle,fileSuffix){
         geom_segment(data=motifsimdata,aes(x=fromLong, y=fromLat, xend=toLong,yend=toLat, color=JacSimCut),
                      inherit.aes = FALSE, size=0.5)+
         geom_text_repel(data=motifsimdata, aes( x=toLong, y=toLat, label=toCode),stat = "unique",
-                        size=5.0,
+                        size=3.0,
                         force_pull   = 0, # do not pull toward data points
                         nudge_y      = 0.05,
                         direction    = "x",
@@ -110,10 +110,11 @@ motifs_make_maps <- function(theInputSimFile, thisSubtitle,fileSuffix){
       #add the ware description on the next line
       appender <- function(string, suffix = facetLabels[which(facetLabels$Site.Code %in% string), 2]) paste0(string, '\n', suffix)
      
-      #p+facet_wrap(~fromCode, ncol = 4,labeller = as_labeller(appender))
+      #comment out this line for all on one map
+      p+facet_wrap(~fromCode, ncol = 4,labeller = as_labeller(appender))
 
       
-      saveplot=paste0('maps/motifs/motifs-nofacet',fileSuffix,'.png')
+      saveplot=paste0('maps/motifs/faceted/motifs',fileSuffix,'.png')
       ggsave(saveplot, bg="white",width = 20, height = 20, units = "cm")
       
     }
@@ -127,7 +128,7 @@ motifs_make_maps <- function(theInputSimFile, thisSubtitle,fileSuffix){
 print(1)
 run1SimFile <- readSimFile[readSimFile$JacSim == 1.0, ]
 run1Subtitle = "Similarity = 1.0"
-run1FileSuffix = "-zoom-v3-gt1"
+run1FileSuffix = "-zoom-v3-eq1"
 
 motifs_make_maps(run1SimFile, run1Subtitle,run1FileSuffix)
 

@@ -2,7 +2,8 @@
 
 # description: use ggplot2 to plot Jaccard similarity matrix
 # x and y limits altered to show a smaller area of Iran
-#uses the ceramics subset for motifs sites
+# uses the ceramics subset for motifs sites
+
 # author: 'Sandy Pullen'
 # date: '2023-09-21'
 
@@ -118,14 +119,9 @@ make_maps <- function(theInputSimFile, thisSubtitle,fileSuffix,thisSize){
       #add the ware description on the next line
       appender <- function(string, suffix = facetLabels[which(facetLabels$Ware.Code %in% string), 2]) paste0(string, '\n', suffix)
       
-     # p+facet_wrap(~fromWare, ncol = 2, labeller = as_labeller(appender))
-      
-    #  saveplot=paste0('maps/motifs/2col/', sites[[1]][[i]],fileSuffix,'.png')
-     # ggsave(saveplot, bg="white",width = 20, height = 20, units = "cm")
-      
       p+facet_wrap(~fromWare, ncol = 4, labeller = as_labeller(appender))
       
-      saveplot=paste0('maps/motifs/4col/', sites[[1]][[i]],fileSuffix,'.png')
+      saveplot=paste0('maps/motifs/ceramic attribute subset/', sites[[1]][[i]],fileSuffix,'.png')
       ggsave(saveplot, bg="white",width = 20, height = 20, units = "cm")
     }
   }
@@ -139,7 +135,7 @@ make_maps <- function(theInputSimFile, thisSubtitle,fileSuffix,thisSize){
 #1 - similarity = 1.0
 print(1)
 run1SimFile <- readSimFile[readSimFile$JacSim == 1.0, ]
-run1Subtitle = "Similarity = 1.0"
+run1Subtitle = "Ceramic Attributes Subset - Similarity = 1.0"
 run1FileSuffix = "-zoom-ceramic-motifs-eq0-1"
 
 make_maps(run1SimFile, run1Subtitle,run1FileSuffix)
@@ -147,7 +143,7 @@ make_maps(run1SimFile, run1Subtitle,run1FileSuffix)
 #2 - similarity >= 0.3
 print(2)
 run2SimFile <- readSimFile[readSimFile$JacSim >= 0.3, ]
-run2Subtitle = "Similarity >= 0.3"
+run2Subtitle = "Ceramic Attributes Subset - Similarity >= 0.3"
 run2FileSuffix = "-zoom-ceramic-motifs-gt0-3"
 
 make_maps(run2SimFile, run2Subtitle,run2FileSuffix)
@@ -155,7 +151,7 @@ make_maps(run2SimFile, run2Subtitle,run2FileSuffix)
 #3 - similarity >= 0.65
 print(3)
 run3SimFile <- readSimFile[readSimFile$JacSim >= 0.65, ]
-run3Subtitle = "Similarity >= 0.65"
+run3Subtitle = "Ceramic Attributes Subset - Similarity >= 0.65"
 run3FileSuffix = "-zoom-ceramic-motifs-gt0-65"
 
 make_maps(run3SimFile, run3Subtitle,run3FileSuffix)
@@ -164,7 +160,7 @@ make_maps(run3SimFile, run3Subtitle,run3FileSuffix)
 #4 - similarity >= 0.8
 print(4)
 run4SimFile <- readSimFile[readSimFile$JacSim >= 0.8, ]
-run4Subtitle = "Similarity >= 0.8"
+run4Subtitle = "Ceramic Attributes Subset - Similarity >= 0.8"
 run4FileSuffix = "-zoom-ceramic-motifs-gt0-8"
 
 make_maps(run4SimFile, run4Subtitle,run4FileSuffix)
@@ -173,7 +169,7 @@ make_maps(run4SimFile, run4Subtitle,run4FileSuffix)
 #5 - similarity >= 0.5
 print(5)
 run5SimFile <- readSimFile[readSimFile$JacSim >= 0.5, ]
-run5Subtitle = "Similarity >= 0.5"
+run5Subtitle = "Ceramic Attributes Subset - Similarity >= 0.5"
 run5FileSuffix = "-zoom-ceramic-motifs-gt0-5"
 
 make_maps(run5SimFile, run5Subtitle,run5FileSuffix)

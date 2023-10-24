@@ -1,4 +1,7 @@
 # title: make-maps-function.R
+
+# MAIN MAPS SCRIPT
+
 # description: use ggplot2 to plot Jaccard similarity matrix
 # author: 'Sandy Pullen'
 # date: '2023-07-04'

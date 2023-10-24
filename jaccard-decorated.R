@@ -1,5 +1,5 @@
 # title: jaccard.R
-# description: create a similarity matrix 
+# description: create a similarity matrix for decorated only
 # using jaccard calculations from either vegdist/vegan or distance/ecodist
 # author: 'Sandy Pullen'
 # date: '2023-06-04'

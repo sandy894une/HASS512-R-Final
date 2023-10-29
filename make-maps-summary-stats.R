@@ -61,7 +61,7 @@ ggplot(statsFile)+
   geom_bar(data=statsFile, aes(mapvalue), stat="count")
 
 
-segmentColours<-c( "lightgreen","forestgreen", "lightblue","royalblue")
+segmentColours<-c( "green","forestgreen", "blue","navyblue")
 
 
       #create the plots
@@ -74,9 +74,10 @@ segmentColours<-c( "lightgreen","forestgreen", "lightblue","royalblue")
       names(mapvalue.labs) <- c(0, 10, 100, 110)
 
       p<-ggplot(iranSF)+
-        labs(title="Summary Statistics") +
+        labs(title="Burnished/Decorated") +
         geom_sf(fill="NA", color="darkgrey", size=0.2) +
-        geom_point(data=statsFile, aes( x=LongDD, y=LatDD, color=as.factor(mapvalue)),size = 2) +
+        geom_point(data=statsFile[,5:6], aes( x=LongDD, y=LatDD), color="lightgrey",size = 1, stat = "unique") +
+        geom_point(data=statsFile, aes( x=LongDD, y=LatDD, color=as.factor(mapvalue)),size = 1) +
 
         coord_sf() +   
         theme_light() + 
@@ -93,3 +94,27 @@ segmentColours<-c( "lightgreen","forestgreen", "lightblue","royalblue")
 
 
 
+      Burnished.labs <- c("Unburnished", "Burnished")
+      names(Burnished.labs) <- c(0, 100)
+      
+      p<-ggplot(iranSF)+
+        labs(title="Burnished/Unburnished") +
+        geom_sf(fill="NA", color="darkgrey", size=0.2) +
+        geom_point(data=statsFile[,5:6], aes( x=LongDD, y=LatDD), color="lightgrey",size = 1, stat = "unique") +
+        geom_point(data=statsFile, aes( x=LongDD, y=LatDD, color=as.factor(Burnished)),size = 1) +
+        
+        coord_sf() +   
+        theme_light() + 
+        
+        xlim(NA, 65) +
+        ylim(NA, 40) +
+        labs(color = "Burnished") +
+        theme(axis.title.x=element_blank(), axis.title.y=element_blank(), strip.text = element_text(size = 8))+
+        facet_wrap(~Burnished, labeller=labeller(Burnished = Burnished.labs))+
+        scale_colour_manual(values = segmentColours, labels=Burnished.labs)
+      
+      saveplot=paste0('maps/summary-stats-burnished.png')
+      ggsave(saveplot, bg="white",width = 20, height = 20, units = "cm")
+      
+      
+      

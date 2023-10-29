@@ -109,12 +109,12 @@ make_maps <- function(theInputSimFile, thisSubtitle,fileSuffix,thisSize){
       
       p+facet_wrap(~fromWare, ncol = 2, labeller = as_labeller(appender))
       
-      saveplot=paste0('maps/motifs/2col/', sites[[1]][[i]],fileSuffix,'.png')
+      saveplot=paste0('maps/2col/', sites[[1]][[i]],fileSuffix,'.png')
       ggsave(saveplot, bg="white",width = 20, height = 20, units = "cm")
       
       p+facet_wrap(~fromWare, ncol = 4, labeller = as_labeller(appender))
       
-      saveplot=paste0('maps/motifs/4col/', sites[[1]][[i]],fileSuffix,'.png')
+      saveplot=paste0('maps/4col/', sites[[1]][[i]],fileSuffix,'.png')
       ggsave(saveplot, bg="white",width = 20, height = 20, units = "cm")
     }
   }
@@ -148,16 +148,9 @@ print(1)
 run1SimFile <- readSimFile[readSimFile$JacSim == 1.0, ]
 run1Subtitle = "Similarity = 1.0"
 run1FileSuffix = "-eq-1"
-run1Size = 3.0
+run1Size = 2.0
 make_maps(run1SimFile, run1Subtitle, run1FileSuffix, run1Size)
 
-#2 - similarity >= 0.85
-print(2)
-run2SimFile <- readSimFile[readSimFile$JacSim >= 0.85, ]
-run2Subtitle = "Similarity >= 0.85"
-run2FileSuffix = "-gt0-85"
-run2Size = 1.5
-make_maps(run2SimFile, run2Subtitle,run2FileSuffix,run2Size)
 
 #3 - similarity >= 0.8
 print(3)
@@ -167,13 +160,6 @@ run3FileSuffix = "-gt0-8"
 run3Size = 3.0
 make_maps(run3SimFile, run3Subtitle,run3FileSuffix,run3Size)
 
-#4 - similarity >= 0.75
-print(4)
-run4SimFile <- readSimFile[readSimFile$JacSim >= 0.75, ]
-run4Subtitle = "Similarity >= 0.75"
-run4FileSuffix = "-gt0-75"
-run4Size = 1.5
-make_maps(run4SimFile, run4Subtitle,run4FileSuffix,run4Size)
 
 #5 - similarity >= 0.65
 print(5)
@@ -183,13 +169,6 @@ run5FileSuffix = "-gt0-65"
 run5Size = 1.5
 make_maps(run5SimFile, run5Subtitle,run5FileSuffix,run5Size)
 
-#6 - similarity >= 0.1
-print(6)
-run6SimFile <- readSimFile[readSimFile$JacSim >= 0.1, ]
-run6Subtitle = "Similarity >= 0.1"
-run6FileSuffix = "-gt0-1"
-run6Size = 1.5
-make_maps(run6SimFile, run6Subtitle,run6FileSuffix,run6Size)
 
 #------------------------------------------------------------------------------
 # decorated only - maps with different thresholds

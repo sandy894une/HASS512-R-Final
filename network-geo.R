@@ -3,10 +3,10 @@ library(ggmap)
 library(sf)
 
 # Read in edge list and node location data and covert to network object
-edges1 <- read.csv("Hispania_roads.csv", header = TRUE)
-nodes <- read.csv("Hispania_nodes.csv", header = TRUE)
-road_net <-
-  graph_from_edgelist(as.matrix(edges1[, 1:2]), directed = FALSE)
+#edges1 <- read.csv("Hispania_roads.csv", header = TRUE)
+#nodes <- read.csv("Hispania_nodes.csv", header = TRUE)
+#road_net <-
+#  graph_from_edgelist(as.matrix(edges1[, 1:2]), directed = FALSE)
 
 # Convert attribute location data to sf coordinates
 locations_sf <-
@@ -17,7 +17,7 @@ xy <- data.frame(x = sitelist$LongDD, y = sitelist$LatDD)
 
 # Extract edge list from network object
 
-e<- as.edgelist(simnet_65)
+e<- as.edgelist(simnet_999)
 
 # Create data frame of beginning and ending points of edges
 edges <- as.data.frame(matrix(NA, nrow(e), 4))
@@ -32,9 +32,9 @@ for (i in seq_len(nrow(e))) {
 }
 
 # Download stamenmap background data.
-my_map <- get_stamenmap(bbox = c(24, 36, 3, 43.8),
-                        maptype = "watercolor",
-                        zoom = 6)
+#my_map <- get_stamenmap(bbox = c(24, 36, 3, 43.8),
+#                        maptype = "watercolor",
+#                        zoom = 6)
 
 # Produce map starting with background
 ggplot(iranSF)+
@@ -66,7 +66,7 @@ ggplot(iranSF)+
 
 segmentColours<-c("lightgreen", "forestgreen","gold", "orange","royalblue")
 p<-ggplot(iranSF)+
-  labs(title="Network - Ceramic Attributes", subtitle="Threshold >= 0.65") +
+  labs(title="Network - Ceramic Attributes", subtitle="Threshold >= 0.999") +
   geom_sf(fill="NA", color="darkgrey", size=0.2) +
   geom_segment(
     data = edges,
@@ -96,8 +96,10 @@ p<-ggplot(iranSF)+
   theme_light() + 
   scale_size_identity() +
   xlim(NA, 65) +
-  ylim(NA, 45) +
+  ylim(NA, 40) +
   labs(color = "Jaccard Similarity Score") +
   theme(axis.title.x=element_blank(), axis.title.y=element_blank(),
         legend.position = "bottom", legend.direction="horizontal",
         strip.text = element_text(size = 8))
+saveplot=paste0('maps/network-gt999',fileSuffix,'.png')
+ggsave(saveplot, bg="white",width = 20, height = 20, units = "cm")
